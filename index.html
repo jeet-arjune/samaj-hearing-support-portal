@@ -287,7 +287,6 @@
             box-shadow: 0 14px 35px #163b7012;
             outline: none
         }
-        /* Circular Logo Image Wrapper styling */
         
         .card-icon-circle {
             width: 48px;
@@ -457,7 +456,6 @@
             color: var(--muted);
             margin: 4px 0 0
         }
-        /* Help Desk Form Panel Styles */
         
         .helpdesk-panel {
             background: white;
@@ -723,9 +721,7 @@
 </head>
 
 <body>
-    <!-- ========================================== -->
-    <!-- NAVIGATION BAR & HEADER SECTION            -->
-    <!-- ========================================== -->
+    <!-- NAVIGATION BAR & HEADER SECTION -->
     <header class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
         <a class="brand" href="#home" aria-label="SAMAJ home" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
             <span class="brand-mark" aria-hidden="true" style="width: 70px; height: 70px; min-width: 70px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent;">
@@ -760,9 +756,7 @@
     </header>
 
     <main id="home">
-        <!-- ========================================== -->
-        <!-- HERO BANNER SECTION                        -->
-        <!-- ========================================== -->
+        <!-- HERO BANNER SECTION -->
         <section class="hero">
             <div class="hero-copy">
                 <span class="eyebrow" data-i18n="eyebrow">A community support initiative by PR Pote College, Amravati</span>
@@ -779,9 +773,7 @@
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- GOVERNMENT SCHEMES SECTION                 -->
-        <!-- ========================================== -->
+        <!-- GOVERNMENT SCHEMES SECTION -->
         <section class="section" id="schemes">
             <div class="section-heading">
                 <div><span class="eyebrow" data-i18n="schemesEyebrow">Financial & Welfare Support</span>
@@ -792,9 +784,7 @@
             <div id="schemesContainer"></div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- MEDICAL TREATMENT SECTION                  -->
-        <!-- ========================================== -->
+        <!-- MEDICAL TREATMENT SECTION -->
         <section class="section" id="medical">
             <div class="section-heading">
                 <div><span class="eyebrow" data-i18n="medicalEyebrow">Health & Audiology</span>
@@ -805,9 +795,7 @@
             <div id="medicalContainer"></div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- EDUCATION SECTION                          -->
-        <!-- ========================================== -->
+        <!-- EDUCATION SECTION -->
         <section class="section" id="education">
             <div class="section-heading">
                 <div><span class="eyebrow" data-i18n="educationEyebrow">Learning & Schools</span>
@@ -818,9 +806,7 @@
             <div id="educationContainer"></div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- ORGANISATION SUPPORT SECTION               -->
-        <!-- ========================================== -->
+        <!-- ORGANISATION SUPPORT SECTION -->
         <section class="section" id="organization">
             <div class="section-heading">
                 <div><span class="eyebrow" data-i18n="orgEyebrow">Community & NGOs</span>
@@ -831,9 +817,7 @@
             <div id="organizationContainer"></div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- HELP DESK SUPPORT FORM SECTION (FormSubmit)-->
-        <!-- ========================================== -->
+        <!-- HELP DESK SUPPORT FORM SECTION (Web3Forms Integration) -->
         <section class="assistant-section" id="assistant">
             <div class="assistant-intro">
                 <span class="eyebrow" data-i18n="assistantEyebrow">Support & Assistance</span>
@@ -852,11 +836,10 @@
                         <small data-i18n="available">Available in Marathi, Hindi and English</small>
                     </div>
                 </div>
-                <form id="helpDeskForm" action="https://formsubmit.co/arjunejeet@gmail.com" method="POST">
-                    <!-- FormSubmit Configuration Fields with CAPTCHA Enabled -->
-                    <input type="hidden" name="_subject" value="New SAMAJ Help Desk Inquiry!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="true">
+                <!-- Web3Forms Endpoint with your access key -->
+                <form id="helpDeskForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="49ef8232-1f03-43bc-8e45-80b51cb3b1ee">
+                    <input type="hidden" name="subject" value="New SAMAJ Help Desk Inquiry!">
 
                     <div class="form-group">
                         <label for="userName" data-i18n="labelName">Your Name</label>
@@ -887,9 +870,7 @@
         </section>
     </main>
 
-    <!-- ========================================== -->
-    <!-- COMMUNITY RESOURCES & AWARENESS MATERIALS  -->
-    <!-- ========================================== -->
+    <!-- COMMUNITY RESOURCES & AWARENESS MATERIALS -->
     <section class="section" id="community-work" style="background: #f7faff;">
         <div class="section-heading">
             <div>
@@ -907,7 +888,7 @@
             </div>
         </div>
 
-        <!-- Medical Brochure Section (2 Photos) -->
+        <!-- Medical Brochure Section -->
         <div class="work-category" style="margin-top: 40px;">
             <h3 style="font: 700 18px Manrope, sans-serif; color: var(--navy2); margin-bottom: 12px;" data-i18n="brochureHeading">2. Medical Information Brochure</h3>
             <div class="resource-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -924,7 +905,7 @@
             </div>
         </div>
 
-        <!-- Awareness Posters Section (3 Images) -->
+        <!-- Awareness Posters Section -->
         <div class="work-category" style="margin-top: 40px;">
             <h3 style="font: 700 18px Manrope, sans-serif; color: var(--navy2); margin-bottom: 12px;" data-i18n="posterHeading">3. Awareness Posters (English & Marathi)</h3>
             <div class="resource-grid" style="grid-template-columns: repeat(3, 1fr);">
@@ -947,26 +928,20 @@
         </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- IMAGE LIGHTBOX MODAL POPUP                 -->
-    <!-- ========================================== -->
+    <!-- IMAGE LIGHTBOX MODAL POPUP -->
     <div id="imageModal" role="dialog" aria-modal="true" aria-label="Enlarged image preview" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px);">
         <button id="closeModal" aria-label="Close dialog" style="position: absolute; top: 20px; right: 25px; background: white; border: none; font-size: 28px; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--navy); z-index: 10000;">×</button>
         <img id="modalImage" src="" alt="Enlarged view" style="max-width: 90%; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
     </div>
 
-    <!-- ========================================== -->
-    <!-- FOOTER SECTION                             -->
-    <!-- ========================================== -->
+    <!-- FOOTER SECTION -->
     <footer>
         <a class="footer-brand" href="#home">SAMAJ</a>
         <p data-i18n="footerText">An open information initiative dedicated to supporting hearing-impaired families across Maharashtra.</p>
         <p class="footer-small" data-i18n="footerDisclaimer">Community welfare reference portal. Please verify critical medical and scheme details with official state authorities.</p>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- JAVASCRIPT LOGIC & DATABASES               -->
-    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC & DATABASES -->
     <script>
         const translations = {
             en: {
@@ -1223,7 +1198,7 @@
             }
         };
 
-        // Government Schemes Database with Official Links & Non-Absolute Claims
+        // Government Schemes Database
         const governmentSchemesData = {
             en: [{
                 id: 'mjpjay',
@@ -1606,7 +1581,7 @@
                     heading: 'उद्देश्य',
                     items: ['स्पीच थेरेपी के साथ संप्रेषण क्षमताओं में सुधार करना।']
                 }, {
-                    heading: 'आधिकारिक पोर्टल',
+                    heading: 'आधिकारिक लिंक',
                     items: ['मंत्रालय पोर्टल → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD पोर्टल</a>']
                 }]
             }]
@@ -2384,33 +2359,65 @@
             menuToggle.setAttribute('aria-expanded', 'false');
         }));
 
-                    // Help Desk Form Validation & Native Submission Trigger
-            document.getElementById('helpDeskForm').addEventListener('submit', (e) => {
-                const contactInput = document.getElementById('userContact').value.trim();
-            
-                // Flexible validation supporting email or general phone numbers (10 to 15 chars/digits)
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
-                
-                if (!emailRegex.test(contactInput) && !phoneRegex.test(contactInput)) {
-                    e.preventDefault(); // Stop submission only if validation fails
-                    alert(language === 'mr' ? 'कृपया वैध ईमेल किंवा फोन नंबर प्रविष्ट करा.' : (language === 'hi' ? 'कृपया वैध ईमेल या फोन नंबर दर्ज करें।' : 'Please enter a valid email address or phone number.'));
-                    return;
-                }
-            
-                // If validation passes, DO NOT call e.preventDefault() 
-                // Let the form submit naturally to FormSubmit!
-            });
-            
-            function escapeHtml(value) {
-                return String(value).replace(/[&<>"']/g, c => ({
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;'
-                }[c]));
+        // Web3Forms AJAX Submission Handler
+        document.getElementById('helpDeskForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const contactInput = document.getElementById('userContact').value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+
+            if (!emailRegex.test(contactInput) && !phoneRegex.test(contactInput)) {
+                alert(language === 'mr' ? 'कृपया वैध ईमेल किंवा फोन नंबर प्रविष्ट करा.' : (language === 'hi' ? 'कृपया वैध ईमेल या फोन नंबर दर्ज करें।' : 'Please enter a valid email address or phone number.'));
+                return;
             }
+
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = language === 'mr' ? 'पाठवत आहे...' : (language === 'hi' ? 'भेजा जा रहा है...' : 'Sending...');
+            submitBtn.disabled = true;
+
+            fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(async response => {
+                    let json = await response.json();
+                    if (response.status === 200) {
+                        this.reset();
+                        document.getElementById('successMessage').style.display = 'block';
+                        submitBtn.textContent = language === 'mr' ? 'सबमिट केले!' : (language === 'hi' ? 'सबमिट किया गया!' : 'Submitted!');
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                            submitBtn.textContent = originalBtnText;
+                            submitBtn.disabled = false;
+                        }, 5000);
+                    } else {
+                        alert(json.message || 'Submission failed. Please try again.');
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    alert('An error occurred. Please check your connection.');
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, c => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[c]));
+        }
 
         // Function to open the Image Modal Lightbox with focus management
         function openModal(imageSrc) {
