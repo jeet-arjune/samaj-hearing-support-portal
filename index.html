@@ -1,0 +1,2483 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#163b70">
+    <meta name="description" content="SAMAJ helps families explore verified hearing-care, education, medical treatment, government schemes, and organization support.">
+    <title>SAMAJ | Information, access, inclusion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+         :root {
+            --navy: #163b70;
+            --navy2: #0f2d53;
+            --blue: #e9f2ff;
+            --orange: #f28b45;
+            --ink: #17263d;
+            --muted: #66758b;
+            --paper: #fbfcff;
+            --line: #e2e9f2;
+            --white: #fff;
+            --green: #2d8a70
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px
+        }
+        
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6
+        }
+        
+        .topbar {
+            height: 94px;
+            padding: 0 clamp(20px, 6vw, 92px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            background: rgba(255, 255, 255, .96);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px)
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--navy)
+        }
+        
+        .brand-mark {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: var(--navy);
+            color: white;
+            font-size: 28px;
+            font-weight: 700
+        }
+        
+        .brand strong {
+            font: 800 26px Manrope, sans-serif;
+            letter-spacing: 1.6px;
+            display: block;
+            line-height: 1.2
+        }
+        
+        .brand small {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: .4px
+        }
+        
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            order: 3
+        }
+        
+        .language-label {
+            font-size: 12px;
+            color: var(--muted)
+        }
+        
+        select {
+            padding: 9px 11px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: white;
+            color: var(--navy);
+            font: 600 13px inherit;
+            cursor: pointer;
+            max-width: 125px
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-left: auto;
+            margin-right: 22px
+        }
+        
+        nav a {
+            font-size: 13px;
+            font-weight: 600;
+            color: #45546b;
+            text-decoration: none
+        }
+        
+        nav a:hover {
+            color: var(--orange)
+        }
+        
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            font-size: 23px;
+            color: var(--navy)
+        }
+        
+        .hero {
+            padding: 82px clamp(24px, 9vw, 140px) 80px;
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            align-items: center;
+            gap: 48px;
+            background: linear-gradient(120deg, #f7faff 0%, #eef5ff 55%, #fff8f1 100%);
+            overflow: hidden
+        }
+        
+        .eyebrow {
+            color: var(--orange);
+            font-size: 11px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            font-weight: 800
+        }
+        
+        .hero h1 {
+            font: 800 clamp(36px, 4.5vw, 59px)/1.12 Manrope, sans-serif;
+            letter-spacing: -2px;
+            color: var(--navy2);
+            margin: 17px 0 22px;
+            max-width: 650px
+        }
+        
+        .hero-copy>p {
+            font-size: 16px;
+            color: #52647c;
+            max-width: 570px
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 29px;
+            flex-wrap: wrap
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 19px;
+            border-radius: 10px;
+            text-decoration: none;
+            font: 700 13px 'DM Sans', sans-serif;
+            border: 1px solid transparent;
+            cursor: pointer
+        }
+        
+        .primary {
+            background: var(--navy);
+            color: white
+        }
+        
+        .primary:hover {
+            background: var(--navy2)
+        }
+        
+        .secondary {
+            background: white;
+            border-color: #d5e1f1;
+            color: var(--navy)
+        }
+        
+        .hero-note {
+            font-size: 11px!important;
+            color: #78879a!important;
+            margin-top: 22px
+        }
+        
+        .hero-art {
+            height: 360px;
+            position: relative;
+            display: grid;
+            place-items: center
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 480px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(22, 59, 112, 0.15)
+        }
+        
+        .section {
+            padding: 70px clamp(24px, 9vw, 140px);
+            background: #ffffff;
+            border: 1px solid #90bce5;
+            border-radius: 20px;
+            margin: 30px clamp(20px, 6vw, 80px);
+            box-shadow: 0 4px 20px rgba(22, 59, 112, 0.03);
+        }
+        
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: end;
+            margin-bottom: 30px
+        }
+        
+        .section h2,
+        .assistant-section h2,
+        .about-section h2 {
+            font: 800 clamp(28px, 3vw, 39px)/1.2 Manrope, sans-serif;
+            letter-spacing: -1.1px;
+            color: var(--navy2);
+            margin: 10px 0
+        }
+        
+        .section-heading>p {
+            max-width: 420px;
+            color: var(--muted);
+            font-size: 13px;
+            margin: 0 0 5px
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px
+        }
+        
+        .resource-card {
+            text-align: left;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 23px 20px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 220px;
+            cursor: pointer;
+            transition: .2s;
+            box-shadow: 0 5px 18px #163b7006
+        }
+        
+        .resource-card:hover,
+        .resource-card:focus-visible {
+            transform: translateY(-4px);
+            border-color: #b8cbe6;
+            box-shadow: 0 14px 35px #163b7012;
+            outline: none
+        }
+        /* Circular Logo Image Wrapper styling */
+        
+        .card-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            border: 1px solid var(--line);
+            flex-shrink: 0;
+        }
+        
+        .card-icon-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-title {
+            font: 800 16px/1.35 Manrope;
+            color: var(--navy2)
+        }
+        
+        .card-description {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 10px
+        }
+        
+        .card-link {
+            margin-top: auto;
+            padding-top: 16px;
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 800
+        }
+        
+        .scheme-detail-container {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(22, 59, 112, 0.08);
+        }
+        
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: start;
+        }
+        
+        .detail-content h3 {
+            font: 800 24px Manrope, sans-serif;
+            color: var(--navy2);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .detail-image-box {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .detail-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(22, 59, 112, 0.12);
+            border: 1px solid var(--line);
+        }
+        
+        .scheme-detail-section {
+            margin-bottom: 20px;
+        }
+        
+        .scheme-detail-section h4 {
+            font: 700 15px Manrope, sans-serif;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        
+        .scheme-detail-section ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 13px;
+            color: #45546b;
+        }
+        
+        .scheme-detail-section li {
+            margin-bottom: 5px;
+        }
+        
+        .scheme-detail-section p {
+            margin: 0;
+            font-size: 13px;
+            color: #45546b;
+        }
+        
+        .scheme-detail-section a {
+            color: var(--orange);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        table.detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        
+        table.detail-table th,
+        table.detail-table td {
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        table.detail-table th {
+            background: var(--blue);
+            color: var(--navy);
+            font-weight: 700;
+        }
+        
+        .muted {
+            font-size: 12px;
+            color: var(--muted)
+        }
+        
+        .assistant-section {
+            padding: 78px clamp(24px, 9vw, 140px);
+            background: #f0f5fc;
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 60px;
+            align-items: center
+        }
+        
+        .assistant-intro>p {
+            color: var(--muted);
+            font-size: 14px;
+            max-width: 400px
+        }
+        
+        .privacy-note {
+            margin-top: 28px;
+            border-left: 3px solid var(--orange);
+            padding: 10px 15px;
+            background: #fff;
+            border-radius: 0 10px 10px 0;
+            max-width: 400px
+        }
+        
+        .privacy-note strong {
+            font-size: 12px;
+            color: var(--navy)
+        }
+        
+        .privacy-note p {
+            font-size: 11px;
+            color: var(--muted);
+            margin: 4px 0 0
+        }
+        /* Help Desk Form Panel Styles */
+        
+        .helpdesk-panel {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 19px;
+            overflow: hidden;
+            box-shadow: 0 22px 60px #163b7010;
+            padding: 24px;
+        }
+        
+        .helpdesk-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 20px;
+        }
+        
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #39aa84;
+            box-shadow: 0 0 0 4px #e5f7ef
+        }
+        
+        .helpdesk-header strong {
+            display: block;
+            color: var(--navy);
+            font: 800 15px Manrope
+        }
+        
+        .helpdesk-header small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 11px 14px;
+            font: 13px 'DM Sans', sans-serif;
+            outline: none;
+            background: #fff;
+            color: var(--ink);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #8baedb;
+            box-shadow: 0 0 0 3px #e9f2ff
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            border: 0;
+            border-radius: 11px;
+            background: var(--orange);
+            color: white;
+            font: 700 14px 'DM Sans', sans-serif;
+            padding: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #e07a34;
+        }
+        
+        .success-message {
+            display: none;
+            background: #e5f7ef;
+            color: #1f6b53;
+            border: 1px solid #b8e8d5;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        footer {
+            background: var(--navy2);
+            color: #d6e1f0;
+            padding: 32px clamp(24px, 9vw, 140px);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4px 22px;
+            align-items: center
+        }
+        
+        .footer-brand {
+            font: 800 18px Manrope;
+            letter-spacing: 2px;
+            color: white;
+            text-decoration: none
+        }
+        
+        footer p {
+            font-size: 12px;
+            margin: 0
+        }
+        
+        .footer-small {
+            grid-column: 1/-1;
+            color: #aabbd1;
+            font-size: 10px;
+            margin-top: 8px
+        }
+        
+        @media(max-width:1000px) {
+            .topbar {
+                padding: 0 24px
+            }
+            .hero,
+            .section,
+            .assistant-section {
+                padding-left: 32px;
+                padding-right: 32px
+            }
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+            .detail-layout {
+                grid-template-columns: 1fr;
+            }
+            .detail-image-box {
+                position: static;
+            }
+            nav {
+                gap: 15px
+            }
+            .assistant-section {
+                gap: 30px
+            }
+        }
+        
+        @media(max-width:720px) {
+            .topbar {
+                height: 80px;
+                padding: 0 16px;
+                gap: 8px
+            }
+            .brand-mark {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+            .brand strong {
+                font-size: 21px
+            }
+            .brand small {
+                font-size: 9px
+            }
+            .top-actions {
+                gap: 5px
+            }
+            .language-label {
+                display: none
+            }
+            select {
+                max-width: 108px;
+                padding: 8px 7px;
+                font-size: 12px
+            }
+            .menu-toggle {
+                display: block
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 79px;
+                left: 0;
+                right: 0;
+                margin: 0;
+                padding: 18px 22px;
+                background: white;
+                border-bottom: 1px solid var(--line);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 17px
+            }
+            nav.open {
+                display: flex
+            }
+            .hero {
+                padding: 55px 23px 42px;
+                grid-template-columns: 1fr;
+                gap: 10px
+            }
+            .hero h1 {
+                font-size: 41px;
+                letter-spacing: -1.5px
+            }
+            .hero-copy>p {
+                font-size: 14px
+            }
+            .hero-art {
+                height: 260px
+            }
+            .section {
+                padding: 55px 20px
+            }
+            .section-heading {
+                display: block
+            }
+            .section-heading>p {
+                margin-top: 13px
+            }
+            .resource-grid {
+                grid-template-columns: 1fr;
+                gap: 10px
+            }
+            .resource-card {
+                padding: 17px 14px;
+                min-height: 180px
+            }
+            .card-title {
+                font-size: 14px
+            }
+            .card-description {
+                font-size: 11px
+            }
+            .assistant-section {
+                padding: 55px 20px;
+                grid-template-columns: 1fr;
+                gap: 25px
+            }
+            footer {
+                padding: 28px 22px;
+                grid-template-columns: 1fr;
+                gap: 8px
+            }
+            .footer-small {
+                grid-column: auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================== -->
+    <!-- NAVIGATION BAR & HEADER SECTION            -->
+    <!-- ========================================== -->
+    <header class="topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
+        <a class="brand" href="#home" aria-label="SAMAJ home" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+            <span class="brand-mark" aria-hidden="true" style="width: 70px; height: 70px; min-width: 70px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: transparent;">
+                <img src="prlogo.png" alt="SAMAJ Logo" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.parentNode.textContent='स';">
+            </span>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <strong data-i18n="समाज" style="font-size: 1.35rem; color: #163b70; line-height: 1.2;">समाज</strong>
+                <small data-i18n="brandSubtitle" style="font-size: 0.73rem; color: #64748b; line-height: 1.3;">Support Portal for Deaf & Hard-of-Hearing Families</small>
+            </div>
+        </a>
+        <nav id="mainNav" style="display: flex; align-items: center; gap: 24px; white-space: nowrap;">
+            <style>
+                #mainNav a:hover {
+                    color: #f28b45 !important;
+                }
+            </style>
+            <a href="#schemes" data-i18n="navSchemes" style="text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9rem; transition: color 0.2s;">Government Schemes</a>
+            <a href="#medical" data-i18n="navMedical" style="text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9rem; transition: color 0.2s;">Medical Treatment</a>
+            <a href="#education" data-i18n="navEducation" style="text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9rem; transition: color 0.2s;">Education</a>
+            <a href="#organization" data-i18n="navOrganization" style="text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9rem; transition: color 0.2s;">Organisation Support</a>
+            <a href="#assistant" data-i18n="navAssistant" style="text-decoration: none; color: #334155; font-weight: 600; font-size: 0.9rem; transition: color 0.2s;">Help Desk</a>
+        </nav>
+        <div class="top-actions" style="display: flex; align-items: center; gap: 8px;">
+            <label class="language-label" for="languageSelect" data-i18n="languageLabel" style="font-size: 0.85rem; color: #64748b;">Language</label>
+            <select id="languageSelect" aria-label="Choose language" style="padding: 6px 10px; border-radius: 8px; border: 1px solid #cbd5e1; background: #fff; font-size: 0.9rem; color: #163b70; font-weight: 600;">
+                <option value="mr">मराठी</option>
+                <option value="hi">हिन्दी</option>
+                <option value="en" selected>English</option>
+            </select>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" style="display: none;">☰</button>
+        </div>
+    </header>
+
+    <main id="home">
+        <!-- ========================================== -->
+        <!-- HERO BANNER SECTION                        -->
+        <!-- ========================================== -->
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow" data-i18n="eyebrow">A community support initiative by PR Pote College, Amravati</span>
+                <h1 data-i18n="heroTitle">Every family deserves a clearer path to support.</h1>
+                <p data-i18n="heroText">Explore government schemes, medical treatment information, education resources, and organization support for deaf and hard-of-hearing individuals.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#schemes" data-i18n="browseBtn">Find resources</a>
+                    <a class="button secondary" href="#assistant" data-i18n="askBtn">Help Desk</a>
+                </div>
+                <p class="hero-note" data-i18n="heroNote">This portal provides informational guidance only and does not substitute for professional medical diagnosis or official administrative evaluation.</p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" alt="Children joyful and included" class="hero-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'16\'>Community Support</text></svg>'">
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- GOVERNMENT SCHEMES SECTION                 -->
+        <!-- ========================================== -->
+        <section class="section" id="schemes">
+            <div class="section-heading">
+                <div><span class="eyebrow" data-i18n="schemesEyebrow">Financial & Welfare Support</span>
+                    <h2 data-i18n="schemesTitle">Government Schemes</h2>
+                </div>
+                <p data-i18n="schemesText">Learn about assistive device subsidies, education scholarships, and government welfare benefits designed to support families.</p>
+            </div>
+            <div id="schemesContainer"></div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- MEDICAL TREATMENT SECTION                  -->
+        <!-- ========================================== -->
+        <section class="section" id="medical">
+            <div class="section-heading">
+                <div><span class="eyebrow" data-i18n="medicalEyebrow">Health & Audiology</span>
+                    <h2 data-i18n="medicalTitle">Medical Treatment</h2>
+                </div>
+                <p data-i18n="medicalText">Explore essential information on cochlear implants, speech therapy approaches, and clinical guidance to help you understand treatment pathways.</p>
+            </div>
+            <div id="medicalContainer"></div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- EDUCATION SECTION                          -->
+        <!-- ========================================== -->
+        <section class="section" id="education">
+            <div class="section-heading">
+                <div><span class="eyebrow" data-i18n="educationEyebrow">Learning & Schools</span>
+                    <h2 data-i18n="educationTitle">Education</h2>
+                </div>
+                <p data-i18n="educationText">Discover school admissions, special institutes, higher education, scholarships, concessions, and career opportunities.</p>
+            </div>
+            <div id="educationContainer"></div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ORGANISATION SUPPORT SECTION               -->
+        <!-- ========================================== -->
+        <section class="section" id="organization">
+            <div class="section-heading">
+                <div><span class="eyebrow" data-i18n="orgEyebrow">Community & NGOs</span>
+                    <h2 data-i18n="orgTitle">Organisation Support</h2>
+                </div>
+                <p data-i18n="orgText">Connect with trusted community groups, NGOs, legal advocacy networks, and family counseling resources for ongoing guidance.</p>
+            </div>
+            <div id="organizationContainer"></div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- HELP DESK SUPPORT FORM SECTION (FormSubmit)-->
+        <!-- ========================================== -->
+        <section class="assistant-section" id="assistant">
+            <div class="assistant-intro">
+                <span class="eyebrow" data-i18n="assistantEyebrow">Support & Assistance</span>
+                <h2 data-i18n="assistantTitle">Help Desk Form</h2>
+                <p data-i18n="assistantText">Have specific questions or need guidance regarding government schemes, medical treatments, education, or organization support? Fill out the form and our support team will reach out to you.</p>
+                <div class="privacy-note">
+                    <strong data-i18n="privacyTitle">Your safety matters</strong>
+                    <p data-i18n="privacyText">Please do not enter medical records, identity numbers, addresses or other sensitive personal information.</p>
+                </div>
+            </div>
+            <div class="helpdesk-panel">
+                <div class="helpdesk-header">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong data-i18n="formHeaderTitle">SAMAJ Support Desk</strong>
+                        <small data-i18n="available">Available in Marathi, Hindi and English</small>
+                    </div>
+                </div>
+                <form id="helpDeskForm" action="https://formsubmit.co/arjunejeet@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration Fields with CAPTCHA Enabled -->
+                    <input type="hidden" name="_subject" value="New SAMAJ Help Desk Inquiry!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="true">
+
+                    <div class="form-group">
+                        <label for="userName" data-i18n="labelName">Your Name</label>
+                        <input type="text" id="userName" name="name" required placeholder="Enter your full name" data-i18n-placeholder="placeholderName">
+                    </div>
+                    <div class="form-group">
+                        <label for="userContact" data-i18n="labelContact">Email Address or Phone Number</label>
+                        <input type="text" id="userContact" name="contact_details" required placeholder="Enter valid email or phone number" data-i18n-placeholder="placeholderContact">
+                    </div>
+                    <div class="form-group">
+                        <label for="queryType" data-i18n="labelCategory">Category of Inquiry</label>
+                        <select id="queryType" name="category">
+                            <option value="Government Scheme" data-i18n="catScheme">Government Scheme</option>
+                            <option value="Medical Treatment / Hospital" data-i18n="catMedical">Medical Treatment / Hospital</option>
+                            <option value="Education / School" data-i18n="catEducation">Education / School</option>
+                            <option value="Organisation Support / NGO" data-i18n="catOrg">Organisation Support / NGO</option>
+                            <option value="Other Support" data-i18n="catOther">Other Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage" data-i18n="labelMessage">Your Message / Query</label>
+                        <textarea id="userMessage" name="message" required placeholder="Describe what help or information you need..." data-i18n-placeholder="placeholderMessage"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" data-i18n="submitBtn">Submit Help Request</button>
+                    <div id="successMessage" class="success-message" data-i18n="successText">Your inquiry has been logged. Our support team will review it and reach out if assistance is available.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- COMMUNITY RESOURCES & AWARENESS MATERIALS  -->
+    <!-- ========================================== -->
+    <section class="section" id="community-work" style="background: #f7faff;">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow" data-i18n="workEyebrow">Team SAMAJ Artifacts</span>
+                <h2 data-i18n="workTitle">Community Resources & Awareness Materials</h2>
+            </div>
+            <p data-i18n="workText">Explore authentic booklets, brochures, and awareness posters created by our team during our community outreach. Click any image to view it larger.</p>
+        </div>
+
+        <!-- Booklet Scrolling Gallery (1.jpg to 29.jpg) -->
+        <div class="work-category">
+            <h3 style="font: 700 18px Manrope, sans-serif; color: var(--navy2); margin-bottom: 12px;" data-i18n="bookletHeading">1. SAMAJ Awareness Booklet (Pages 1 - 29)</h3>
+            <div class="scrolling-booklet-container" style="display: flex; flex-wrap: nowrap; gap: 12px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                <!-- Dynamically populated via script -->
+            </div>
+        </div>
+
+        <!-- Medical Brochure Section (2 Photos) -->
+        <div class="work-category" style="margin-top: 40px;">
+            <h3 style="font: 700 18px Manrope, sans-serif; color: var(--navy2); margin-bottom: 12px;" data-i18n="brochureHeading">2. Medical Information Brochure</h3>
+            <div class="resource-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="resource-card" style="cursor: pointer;" onclick="openModal('brochure1.jpg')">
+                    <img src="brochure1.jpg" alt="Medical Brochure Page 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'13\'>Brochure Page 1</text></svg>'">
+                    <span class="card-title" data-i18n="brochurePage1Title">Brochure - Page 1</span>
+                    <span class="card-description" data-i18n="brochurePage1Desc">Overview of health support opportunities, core importance of early intervention, and emergency contact channels.</span>
+                </div>
+                <div class="resource-card" style="cursor: pointer;" onclick="openModal('brochure2.jpg')">
+                    <img src="brochure2.jpg" alt="Medical Brochure Page 2" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'13\'>Brochure Page 2</text></svg>'">
+                    <span class="card-title" data-i18n="brochurePage2Title">Brochure - Page 2</span>
+                    <span class="card-description" data-i18n="brochurePage2Desc">Detailed breakdown of cochlear implant surgery mechanisms, speech therapy treatments, and major government welfare schemes (ADIP, MJPJAY, PM-JAY).</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awareness Posters Section (3 Images) -->
+        <div class="work-category" style="margin-top: 40px;">
+            <h3 style="font: 700 18px Manrope, sans-serif; color: var(--navy2); margin-bottom: 12px;" data-i18n="posterHeading">3. Awareness Posters (English & Marathi)</h3>
+            <div class="resource-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="resource-card" style="cursor: pointer;" onclick="openModal('poster1.png')">
+                    <img src="poster1.png" alt="Awareness Poster 1" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'13\'>Poster 1</text></svg>'">
+                    <span class="card-title" data-i18n="poster1Title">Community Outreach Poster</span>
+                    <span class="card-description" data-i18n="poster1Desc">Community Awareness & Early Intervention Guide emphasizing early screening before age 5, free treatments, and skill development guidance.</span>
+                </div>
+                <div class="resource-card" style="cursor: pointer;" onclick="openModal('poster2.png')">
+                    <img src="poster2.png" alt="Awareness Poster 2" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'13\'>Poster 2</text></svg>'">
+                    <span class="card-title" data-i18n="poster2Title">Project SAMAJ Edition</span>
+                    <span class="card-description" data-i18n="poster2Desc">Project SAMAJ - Listening to Silence focusing on community empathy, support networks, and local outreach contact info at Nutan Mukbadhir School, Amravati.</span>
+                </div>
+                <div class="resource-card" style="cursor: pointer;" onclick="openModal('poster3.png')">
+                    <img src="poster3.png" alt="Awareness Poster 3" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'13\'>Poster 3</text></svg>'">
+                    <span class="card-title" data-i18n="poster3Title">Visual Support Banner</span>
+                    <span class="card-description" data-i18n="poster3Desc">Visual Community Support & Scheme Pathways summarizing diagnostic steps, school support, and financial welfare programs.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- IMAGE LIGHTBOX MODAL POPUP                 -->
+    <!-- ========================================== -->
+    <div id="imageModal" role="dialog" aria-modal="true" aria-label="Enlarged image preview" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px);">
+        <button id="closeModal" aria-label="Close dialog" style="position: absolute; top: 20px; right: 25px; background: white; border: none; font-size: 28px; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--navy); z-index: 10000;">×</button>
+        <img id="modalImage" src="" alt="Enlarged view" style="max-width: 90%; max-height: 85vh; border-radius: 12px; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FOOTER SECTION                             -->
+    <!-- ========================================== -->
+    <footer>
+        <a class="footer-brand" href="#home">SAMAJ</a>
+        <p data-i18n="footerText">An open information initiative dedicated to supporting hearing-impaired families across Maharashtra.</p>
+        <p class="footer-small" data-i18n="footerDisclaimer">Community welfare reference portal. Please verify critical medical and scheme details with official state authorities.</p>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT LOGIC & DATABASES               -->
+    <!-- ========================================== -->
+    <script>
+        const translations = {
+            en: {
+                languageLabel: 'Language',
+                navSchemes: 'Government Schemes',
+                navMedical: 'Medical Treatment',
+                navEducation: 'Education',
+                navOrganization: 'Organisation Support',
+                navAssistant: 'Help Desk',
+                brandSubtitle: 'Support Portal for Deaf & Hard-of-Hearing Families',
+                eyebrow: 'A community support initiative by PR Pote College, Amravati',
+                heroTitle: 'Every family deserves a clearer path to support.',
+                heroText: 'Explore government schemes, medical treatment information, education resources, and organization support for deaf and hard-of-hearing individuals.',
+                browseBtn: 'Find resources',
+                askBtn: 'Help Desk',
+                heroNote: 'This portal provides informational guidance only and does not substitute for professional medical diagnosis or official administrative evaluation.',
+                schemesEyebrow: 'Financial & Welfare Support',
+                schemesTitle: 'Government Schemes',
+                schemesText: 'Learn about assistive device subsidies, education scholarships, and government welfare benefits designed to support families.',
+                medicalEyebrow: 'Health & Audiology',
+                medicalTitle: 'Medical Treatment',
+                medicalText: 'Explore essential information on cochlear implants, speech therapy approaches, and clinical guidance to help you understand treatment pathways.',
+                educationEyebrow: 'Learning & Schools',
+                educationTitle: 'Education',
+                educationText: 'Discover school admissions, special institutes, higher education, scholarships, concessions, and career opportunities.',
+                orgEyebrow: 'Community & NGOs',
+                orgTitle: 'Organisation Support',
+                orgText: 'Connect with trusted community groups, NGOs, legal advocacy networks, and family counseling resources for ongoing guidance.',
+                explore: 'Explore →',
+                backToSchemes: '← Back to Schemes',
+                backToMedical: '← Back to Treatments',
+                backToEducation: '← Back to Education',
+                backToOrg: '← Back to Organizations',
+                docRequired: 'Documentation Required',
+                benefits: 'Benefits',
+                eligibility: 'Eligibility',
+                availability: 'Availability',
+                hospitalsSupport: 'Hospitals that Support',
+                officialPortals: 'Official Portals & Verification Links',
+                overview: 'Overview',
+                whyNeeded: "Why it's needed",
+                cost: 'Cost & Coverage',
+                govSchemes: 'Government Support & Schemes',
+                assistantEyebrow: 'Support & Assistance',
+                assistantTitle: 'Help Desk Form',
+                assistantText: 'Have specific questions or need guidance regarding government schemes, medical treatments, education, or organization support? Fill out the form and our support team will reach out to you.',
+                privacyTitle: 'Your safety matters',
+                privacyText: 'Please do not enter medical records, identity numbers, addresses or other sensitive personal information.',
+                available: 'Available in Marathi, Hindi and English',
+                formHeaderTitle: 'SAMAJ Support Desk',
+                labelName: 'Your Name',
+                placeholderName: 'Enter your full name',
+                labelContact: 'Email Address or Phone Number',
+                placeholderContact: 'Enter valid email or phone number',
+                labelCategory: 'Category of Inquiry',
+                catScheme: 'Government Scheme',
+                catMedical: 'Medical Treatment / Hospital',
+                catEducation: 'Education / School',
+                catOrg: 'Organisation Support / NGO',
+                catOther: 'Other Support',
+                labelMessage: 'Your Message / Query',
+                placeholderMessage: 'Describe what help or information you need...',
+                submitBtn: 'Submit Help Request',
+                successText: 'Your inquiry has been logged. Our support team will review it and reach out if assistance is available.',
+                footerText: 'An open information initiative dedicated to supporting hearing-impaired families across Maharashtra.',
+                footerDisclaimer: 'Community welfare reference portal. Please verify critical medical and scheme details with official state authorities.',
+                workEyebrow: 'Team SAMAJ Artifacts',
+                workTitle: 'Community Resources & Awareness Materials',
+                workText: 'Explore authentic booklets, brochures, and awareness posters created by our team during our community outreach. Click any image to view it larger.',
+                bookletHeading: '1. SAMAJ Awareness Booklet (Pages 1 - 29)',
+                brochureHeading: '2. Medical Information Brochure',
+                posterHeading: '3. Awareness Posters (English & Marathi)',
+                brochurePage1Title: 'Brochure - Page 1',
+                brochurePage1Desc: 'Overview of health support opportunities, core importance of early intervention, and emergency contact channels.',
+                brochurePage2Title: 'Brochure - Page 2',
+                brochurePage2Desc: 'Detailed breakdown of cochlear implant surgery mechanisms, speech therapy treatments, and major government welfare schemes (ADIP, MJPJAY, PM-JAY).',
+                poster1Title: 'Community Outreach Poster',
+                poster1Desc: 'Community Awareness & Early Intervention Guide emphasizing early screening before age 5, free treatments, and skill development guidance.',
+                poster2Title: 'Project SAMAJ Edition',
+                poster2Desc: 'Project SAMAJ - Listening to Silence focusing on community empathy, support networks, and local outreach contact info at Nutan Mukbadhir School, Amravati.',
+                poster3Title: 'Visual Support Banner',
+                poster3Desc: 'Visual Community Support & Scheme Pathways summarizing diagnostic steps, school support, and financial welfare programs.',
+                tableAgeGroup: 'Age Group',
+                tableDocsReq: 'Documents Required',
+                tableSchoolType: 'School Type & Admission'
+            },
+            mr: {
+                languageLabel: 'भाषा',
+                navSchemes: 'शासकीय योजना',
+                navMedical: 'वैद्यकीय उपचार',
+                navEducation: 'शिक्षण',
+                navOrganization: 'संस्थागत मदत',
+                navAssistant: 'मदत कक्ष',
+                brandSubtitle: 'श्रवणदोष असलेल्या कुटुंबांसाठी सहाय्य पोर्टल',
+                eyebrow: 'पी. आर. पोटे कॉलेज, अमरावती द्वारे समुदाय सहाय्य उपक्रम',
+                heroTitle: 'प्रत्येक कुटुंबाला मदतीचा स्पष्ट मार्ग मिळायला हवा.',
+                heroText: 'श्रवणदोष असणाऱ्या व्यक्तींसाठी शासकीय योजना, वैद्यकीय उपचार माहिती, शिक्षण संसाधने आणि संस्थागत मदत शोधा.',
+                browseBtn: 'संसाधने शोधा',
+                askBtn: 'मदत कक्ष',
+                heroNote: 'हे पोर्टल केवळ मार्गदर्शनासाठी आहे; वैद्यकीय निदान किंवा अधिकृत पात्रता निर्णयाचा पर्याय नाही.',
+                schemesEyebrow: 'आर्थिक व कल्याणकारी मदत',
+                schemesTitle: 'शासकीय योजना',
+                schemesText: 'कुटुंबांना आधार देण्यासाठी उपकरण अनुदान, शिक्षण शिष्यवृत्ती आणि शासकीय कल्याणकारी लाभांबद्दल माहिती मिळवा.',
+                medicalEyebrow: 'आरोग्य व श्रवणसेवा',
+                medicalTitle: 'वैद्यकीय उपचार',
+                medicalText: 'उपचाराचे मार्ग समजून घेण्यास मदत करण्यासाठी कॉक्लियर इम्प्लांट, स्पीच थेरपी आणि वैद्यकीय मार्गदर्शनाबद्दल महत्त्वाची माहिती.',
+                educationEyebrow: 'शिक्षण व शाळा',
+                educationTitle: 'शिक्षण',
+                educationText: 'शाळा प्रवेश, विशेष संस्था, उच्च शिक्षण, शिष्यवृत्ती, परीक्षा सवलती आणि करिअरच्या संधी शोधा.',
+                orgEyebrow: 'कम्युनिटी व एनजीओ',
+                orgTitle: 'संस्थागत मदत',
+                orgText: 'मार्गदर्शनासाठी विश्वासू समुदाय गट, एनजीओ, कायदेशीर सल्ला नेटवर्क आणि कौटुंबिक समुपदेशन साधनांशी संपर्क साधा.',
+                explore: 'पहा →',
+                backToSchemes: '← योजनांच्या यादीकडे परत',
+                backToMedical: '← उपचारांच्या यादीकडे परत',
+                backToEducation: '← शिक्षणाच्या यादीकडे परत',
+                backToOrg: '← संस्थांच्या यादीकडे परत',
+                docRequired: 'आवश्यक कागदपत्रे',
+                benefits: 'फायदे',
+                eligibility: 'पात्रता',
+                availability: 'उपलब्धता',
+                hospitalsSupport: 'सपोर्ट करणारी रुग्णालये',
+                officialPortals: 'अधिकृत पोर्टल आणि पडताळणी लिंक्स',
+                overview: 'प्रस्तावना / माहिती',
+                whyNeeded: 'ही का आवश्यक आहे?',
+                cost: 'खर्च आणि कव्हरेज',
+                govSchemes: 'शासकीय योजना व सहाय्य',
+                assistantEyebrow: 'सपोर्ट व मदत',
+                assistantTitle: 'मदत कक्ष अर्ज',
+                assistantText: 'शासकीय योजना, वैद्यकीय उपचार, शिक्षण किंवा संस्थागत मदतीबद्दल काही प्रश्न आहेत का? हा फॉर्म भरा आणि आमची सपोर्ट टीम तुमच्याशी संपर्क साधेल.',
+                privacyTitle: 'तुमची सुरक्षितता महत्त्वाची',
+                privacyText: 'वैद्यकीय नोंदी, ओळखपत्र क्रमांक, पत्ता किंवा इतर संवेदनशील वैयक्तिक माहिती टाकू नका.',
+                available: 'मराठी, हिंदी आणि इंग्रजीमध्ये उपलब्ध',
+                formHeaderTitle: 'समाज सपोर्ट डेस्क',
+                labelName: 'तुमचे नाव',
+                placeholderName: 'पूर्ण नाव लिहा',
+                labelContact: 'ईमेल पत्ता किंवा फोन नंबर',
+                placeholderContact: 'वैध ईमेल किंवा फोन नंबर टाका',
+                labelCategory: 'चौकशीचा विषय',
+                catScheme: 'शासकीय योजना',
+                catMedical: 'वैद्यकीय उपचार / रुग्णालय',
+                catEducation: 'शिक्षण / शाळा',
+                catOrg: 'संस्थागत मदत / एनजीओ',
+                catOther: 'इतर मदत',
+                labelMessage: 'तुमचा संदेश / प्रश्न',
+                placeholderMessage: 'तुम्हाला कोणती मदत हवी आहे ते सांगा...',
+                submitBtn: 'मदत विनंती सबमिट करा',
+                successText: 'तुमची चौकशी नोंदवली गेली आहे. आमची सपोर्ट टीम त्याचे पुनरावलोकन करेल आणि मदत उपलब्ध असल्यास संपर्क साधेल.',
+                footerText: 'महाराष्ट्रातील श्रवणदोष असलेल्या कुटुंबांना मदत करण्यासाठी समर्पित माहिती पोर्टल.',
+                footerDisclaimer: 'समुदाय कल्याण संदर्भ पोर्टल. कृपया अधिकृत राज्य प्राधिकाऱ्यांकडून वैद्यकीय आणि योजनेच्या तपशीलांची खात्री करा.',
+                workEyebrow: 'टीम समाजचे साहित्य',
+                workTitle: 'समुदाय संसाधने आणि जनजागृती साहित्य',
+                workText: 'आमच्या समुदायापर्यंत पोहोचताना तयार केलेली अस्सल पुस्तके, माहितीपत्रके आणि जनजागृती पोस्टर्स पहा.',
+                bookletHeading: '१. समाज जनजागृती पुस्तिका (पृष्ठ १ - २९)',
+                brochureHeading: '२. वैद्यकीय माहिती पुस्तिका',
+                posterHeading: '३. जनजागृती पोस्टर्स (इंग्रजी आणि मराठी)',
+                brochurePage1Title: 'माहितीपत्रक - पान १',
+                brochurePage1Desc: 'आरोग्य सहाय्य संधी, बालपणातील लवकर तपासणीचे महत्त्व आणि आपत्कालीन संपर्कांचे विहंगावलोकन.',
+                brochurePage2Title: 'माहितीपत्रक - पान २',
+                brochurePage2Desc: 'कॉक्लियर इम्प्लांट शस्त्रक्रिया, स्पीच थेरपी उपचार आणि प्रमुख शासकीय योजनांची (ADIP, MJPJAY, PM-JAY) सविस्तर माहिती.',
+                poster1Title: 'समुदाय जनजागृती पोस्टर',
+                poster1Desc: '५ वर्षांपूर्वी तपासणी, मोफत उपचार आणि कौशल्य विकासावर भर देणारे जनजागृती व प्रारंभिक हस्तक्षेप मार्गदर्शक.',
+                poster2Title: 'प्रोजेक्ट समाज आवृत्ती',
+                poster2Desc: 'नूतन मुकबधिर शाळा, अमरावती येथील स्थानिक संपर्क माहितीसह समुदाय सहानुभूती आणि समर्थन नेटवर्कवर केंद्रित.',
+                poster3Title: 'दृश्य आधार बॅनर',
+                poster3Desc: 'निदान चरण, शाळा प्रवेश आणि वित्तीय कल्याणकारी कार्यक्रमांचा सारांश देणारे दृश्य समुदाय सहाय्य मार्गदर्शक.',
+                tableAgeGroup: 'वयोमर्यादा',
+                tableDocsReq: 'आवश्यक कागदपत्रे',
+                tableSchoolType: 'शाळेचा प्रकार व प्रवेश'
+            },
+            hi: {
+                languageLabel: 'भाषा',
+                navSchemes: 'सरकारी योजनाएँ',
+                navMedical: 'चिकित्सा उपचार',
+                navEducation: 'शिक्षा',
+                navOrganization: 'संगठन सहायता',
+                navAssistant: 'सहायता केंद्र',
+                brandSubtitle: 'श्रवण बाधित परिवारों के लिए सहायता पोर्टल',
+                eyebrow: 'पी. आर. पोटे कॉलेज, अमरावती द्वारा एक सामुदायिक सहायता पहल',
+                heroTitle: 'हर परिवार को सहायता तक पहुँचने का स्पष्ट रास्ता मिलना चाहिए।',
+                heroText: 'श्रवण बाधित व्यक्तियों के लिए सरकारी योजनाओं, चिकित्सा उपचार, शिक्षा संसाधनों और संगठन सहायता की जानकारी खोजें।',
+                browseBtn: 'संसाधन खोजें',
+                askBtn: 'सहायता केंद्र',
+                heroNote: 'यह पोर्टल केवल सूचनात्मक मार्गदर्शन प्रदान करता है और पेशेवर चिकित्सा निदान का विकल्प नहीं है।',
+                schemesEyebrow: 'वित्तीय और कल्याणकारी सहायता',
+                schemesTitle: 'सरकारी योजनाएँ',
+                schemesText: 'परिवारों का समर्थन करने के लिए डिज़ाइन किए गए सहायक उपकरण सब्सिडी, शिक्षा छात्रवृत्ति और सरकारी कल्याणकारी लाभों के बारे में जानें।',
+                medicalEyebrow: 'स्वास्थ्य एवं ऑटोलॉजी',
+                medicalTitle: 'चिकित्सा उपचार',
+                medicalText: 'उपचार के मार्गों को समझने में मदद के लिए कॉक्लियर इम्प्लांट, स्पीच थेरेपी और नैदानिक मार्गदर्शन पर आवश्यक जानकारी खोजें।',
+                educationEyebrow: 'शिक्षा और स्कूल',
+                educationTitle: 'शिक्षा',
+                educationText: 'स्कूल प्रवेश, विशेष संस्थान, उच्च शिक्षा, छात्रवृत्ति, परीक्षा छूट और करियर के अवसर खोजें।',
+                orgEyebrow: 'समुदाय और एनजीओ',
+                orgTitle: 'संगठन सहायता',
+                orgText: 'सतत मार्गदर्शन के लिए विश्वसनीय सामुदायिक समूहों, एनजीओ, कानूनी सहायता नेटवर्क और पारिवारिक परामर्श संसाधनों से जुड़ें।',
+                explore: 'देखें →',
+                backToSchemes: '← योजनाओं पर वापस जाएं',
+                backToMedical: '← उपचार सूची पर वापस जाएं',
+                backToEducation: '← शिक्षा सूची पर वापस जाएं',
+                backToOrg: '← संगठन सूची पर वापस जाएं',
+                docRequired: 'आवश्यक दस्तावेज़',
+                benefits: 'लाभ',
+                eligibility: 'पात्रता',
+                availability: 'उपलब्धता',
+                hospitalsSupport: 'सहायक अस्पताल',
+                officialPortals: 'आधिकारिक पोर्टल और सत्यापन लिंक',
+                overview: 'अवलोकन',
+                whyNeeded: 'यह क्यों आवश्यक है?',
+                cost: 'लागत और कवरेज',
+                govSchemes: 'सरकारी सहायता और योजनाएँ',
+                assistantEyebrow: 'सहायता एवं समर्थन',
+                assistantTitle: 'सहायता कक्ष आवेदन',
+                assistantText: 'सरकारी योजनाओं, चिकित्सा उपचार, शिक्षा या संगठन सहायता के बारे में कोई सवाल है? फॉर्म भरें और हमारी टीम आपसे संपर्क करेगी।',
+                privacyTitle: 'आपकी सुरक्षा महत्वपूर्ण है',
+                privacyText: 'चिकित्सा रिकॉर्ड, पहचान संख्या, पता या अन्य संवेदनशील व्यक्तिगत जानकारी दर्ज न करें।',
+                available: 'मराठी, हिंदी और अंग्रेज़ी में उपलब्ध',
+                formHeaderTitle: 'समाज सपोर्ट डेस्क',
+                labelName: 'आपका नाम',
+                placeholderName: 'अपना पूरा नाम दर्ज करें',
+                labelContact: 'ईमेल पता या फोन नंबर',
+                placeholderContact: 'वैध ईमेल या फोन नंबर दर्ज करें',
+                labelCategory: 'पूछताछ की श्रेणी',
+                catScheme: 'सरकारी योजना',
+                catMedical: 'चिकित्सा उपचार / अस्पताल',
+                catEducation: 'शिक्षा / स्कूल',
+                catOrg: 'संगठन सहायता / एनजीओ',
+                catOther: 'अन्य सहायता',
+                labelMessage: 'आपका संदेश / प्रश्न',
+                placeholderMessage: 'बताएं आपको किस प्रकार की सहायता चाहिए...',
+                submitBtn: 'सहायता अनुरोध सबमिट करें',
+                successText: 'आपकी पूछताछ दर्ज कर ली गई है। हमारी सहायता टीम इसकी समीक्षा करेगी और सहायता उपलब्ध होने पर संपर्क करेगी।',
+                footerText: 'महाराष्ट्र भर में श्रवण बाधित परिवारों का समर्थन करने के लिए समर्पित एक खुली सूचना पहल।',
+                footerDisclaimer: 'सामुदायिक कल्याण संदर्भ पोर्टल। कृपया आधिकारिक राज्य अधिकारियों के साथ महत्वपूर्ण चिकित्सा और योजना विवरण सत्यापित करें।',
+                workEyebrow: 'टीम समाज सामग्री',
+                workTitle: 'सामुदायिक संसाधन और जागरूकता सामग्री',
+                workText: 'हमारे सामुदायिक प्रयासों के दौरान टीम द्वारा बनाई गई प्रामाणिक पुस्तिकाएं, ब्रोशर और जागरूकता पोस्टर देखें।',
+                bookletHeading: '१. समाज जागरूकता पुस्तिका (पृष्ठ १ - २९)',
+                brochureHeading: '२. चिकित्सा सूचना ब्रोशर',
+                posterHeading: '३. जागरूकता पोस्टर (अंग्रेज़ी और हिंदी)',
+                brochurePage1Title: 'ब्रोशर - पृष्ठ १',
+                brochurePage1Desc: 'स्वास्थ्य सहायता के अवसरों, बचपन में शुरुआती जाँच के महत्व और आपातकालीन संपर्क चैनलों का अवलोकन।',
+                brochurePage2Title: 'ब्रोशर - पृष्ठ २',
+                brochurePage2Desc: 'कॉक्लियर इम्प्लांट सर्जरी प्रक्रिया, स्पीच थेरेपी उपचार और प्रमुख सरकारी योजनाओं (ADIP, MJPJAY, PM-JAY) का विस्तृत विवरण।',
+                poster1Title: 'सामुदायिक आउटरीच पोस्टर',
+                poster1Desc: '5 वर्ष से पहले शुरुआती जाँच, निःशुल्क उपचार और कौशल विकास मार्गदर्शन पर जोर देने वाली जागरूकता मार्गदर्शिका।',
+                poster2Title: 'प्रोजेक्ट समाज संस्करण',
+                poster2Desc: 'नूतन मुकबधिर विद्यालय, अमरावती में स्थानीय संपर्क विवरण के साथ सामुदायिक सहानुभूति और समर्थन नेटवर्क पर केंद्रित।',
+                poster3Title: 'दृश्य सहायता बैनर',
+                poster3Desc: 'निदान चरणों, स्कूली शिक्षा और वित्तीय कल्याण कार्यक्रमों का सारांश देने वाला दृश्य समुदाय सहायता मार्गदर्शक।',
+                tableAgeGroup: 'आयु वर्ग',
+                tableDocsReq: 'आवश्यक दस्तावेज़',
+                tableSchoolType: 'स्कूल का प्रकार और प्रवेश'
+            }
+        };
+
+        // Government Schemes Database with Official Links & Non-Absolute Claims
+        const governmentSchemesData = {
+            en: [{
+                id: 'mjpjay',
+                title: 'Mahatma Jyotiba Phule Jan Arogya Yojana (MJPJAY)',
+                shortInfo: 'State-funded health insurance providing cashless treatment up to ₹1.5 lakh per family per year in Maharashtra, subject to scheme criteria.',
+                documentation: ['MJPJAY Card', 'Aadhaar Card', 'Income Certificate', 'Ration Card'],
+                benefits: ['Cashless treatment coverage up to ₹1.5 lakh/year per family, subject to approval', 'Covers empaneled ENT procedures and interventions', 'Cashless treatment network across participating hospitals.'],
+                eligibility: ['Families holding Yellow, Orange, or Antyodaya ration cards, subject to official verification.'],
+                availability: 'Available only in Maharashtra.',
+                hospitals: ['Amravati Civil Hospital', 'Govt. Medical College, Nagpur', 'JJ Hospital, Mumbai', 'KEM Hospital, Mumbai', 'Sassoon Hospital, Pune'],
+                links: [{
+                    name: 'Maharashtra Public Health Department Guidelines',
+                    url: 'https://phd.maharashtra.gov.in'
+                }, {
+                    name: 'Ayushman Bharat Beneficiary Portal',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }, {
+                id: 'rbsk',
+                title: 'Rashtriya Bal Swasthya Karyakram (RBSK)',
+                shortInfo: 'Early intervention initiative for children (0–18 years) offering screening and referral pathways for developmental delays and conditions.',
+                documentation: ['Aadhaar Card', 'Birth Certificate', 'Referral from teacher/health worker'],
+                benefits: ['Screening and support services for qualifying health conditions and developmental issues'],
+                eligibility: ['Children 0-18 years enrolled in participating schools or anganwadis'],
+                availability: 'School health programs via Zilla Parishads in Maharashtra.',
+                hospitals: ['Amravati District Early Intervention Center (DEIC)', 'Nagpur GMC'],
+                links: [{
+                    name: 'National Health Portal - DEPwD',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'adip',
+                title: 'ADIP Scheme (Assistance to Disabled Persons)',
+                shortInfo: 'Assistance for eligible persons with disabilities for purchase/fitting of aids, appliances, and qualifying assistive devices.',
+                documentation: ['UDID Card', 'Aadhaar Card', 'Income Certificate'],
+                benefits: ['Subsidized or assistive device distribution based on official scheme evaluation', 'Qualifying support pathways as determined by authorized centers'],
+                eligibility: ['Individuals meeting qualifying disability percentage and income criteria defined by the ministry.'],
+                availability: 'Available through Ali Yavar Jung Institute (Mumbai) and designated Govt. centers.',
+                hospitals: ['Amravati Civil Hospital', 'Nagpur GMC', 'JJ Hospital, Mumbai'],
+                links: [{
+                    name: 'ADIP Scheme & ARJUN Portal',
+                    url: 'https://adip.depwd.gov.in'
+                }, {
+                    name: 'Department of Empowerment of Persons with Disabilities (DEPwD)',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'ayushman',
+                title: 'Ayushman Bharat (PM-JAY)',
+                shortInfo: 'National health protection scheme providing health coverage up to ₹5 lakh per family per year for empaneled secondary and tertiary care.',
+                documentation: ['Ayushman Card', 'Aadhaar Card', 'Ration Card'],
+                benefits: ['Health coverage up to ₹5 lakh/family/year for qualifying treatments', 'Includes empaneled surgical procedures at authorized facilities'],
+                eligibility: ['Families listed in SECC database or holding an active Ayushman Card'],
+                availability: 'Implemented across empaneled public and private hospitals nationwide.',
+                hospitals: ['Amravati District Hospital', 'Nagpur GMC', 'JJ Hospital, Mumbai'],
+                links: [{
+                    name: 'Ayushman Bharat Beneficiary Portal',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }],
+            mr: [{
+                id: 'mjpjay',
+                title: 'महात्मा ज्योतिराव फुले जन आरोग्य योजना (MJPJAY)',
+                shortInfo: 'महाराष्ट्रात निकषांच्या अधीन राहून प्रति कुटुंब प्रतिवर्ष ₹1.5 लाखांपर्यंत cashless उपचारांची सुविधा देणारी राज्य शासनाची आरोग्य विमा योजना.',
+                documentation: ['MJPJAY कार्ड', 'आधार कार्ड', 'उत्पन्नाचा दाखला', 'रेशन कार्ड'],
+                benefits: ['पात्रतेनुसार प्रति कुटुंब प्रतिवर्ष ₹1.5 लाखांपर्यंत उपचार कव्हरेज', 'सूचीत रुग्णालयांमध्ये कॅशलेस उपचार'],
+                eligibility: ['पिवळी, केशरी किंवा अंत्योदय रेशन कार्डधारक कुटुंबे (अधिकृत पडताळणी आवश्यक).'],
+                availability: 'केवळ महाराष्ट्रात उपलब्ध.',
+                hospitals: ['अमरावती सिव्हिल हॉस्पिटल', 'शासकीय वैद्यकीय महाविद्यालय, नागपूर', 'जे. जे. रुग्णालय, मुंबई'],
+                links: [{
+                    name: 'महाराष्ट्र सार्वजनिक आरोग्य विभाग',
+                    url: 'https://phd.maharashtra.gov.in'
+                }, {
+                    name: 'आयुष्मान भारत लाभार्थी पोर्टल',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }, {
+                id: 'rbsk',
+                title: 'राष्ट्रीय बाल स्वास्थ्य कार्यक्रम (RBSK)',
+                shortInfo: '0-18 वर्षांच्या मुलांसाठी आरोग्य तपासणी आणि विकासात्मक विलंब ओळखण्यासाठी प्रारंभिक हस्तक्षेप उपक्रम.',
+                documentation: ['आधार कार्ड', 'जन्म दाखला', 'रेफरल'],
+                benefits: ['पात्र आरोग्य अटींसाठी तपासणी व संदर्भ सेवा'],
+                eligibility: ['0 ते 18 वर्षे वयोगटातील बालके'],
+                availability: 'जिल्हा परिषदांमार्फत शाळा आरोग्य कार्यक्रम.',
+                hospitals: ['अमरावती जिल्हा अर्ली इंटरव्हेंशन सेंटर (DEIC)'],
+                links: [{
+                    name: 'राष्ट्रीय आरोग्य पोर्टल',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'adip',
+                title: 'एडिपा योजना (ADIP Scheme)',
+                shortInfo: 'पात्र दिव्यांग व्यक्तींसाठी सहाय्यक साधने आणि उपकरणांच्या खरेदीसाठी सहाय्य करणारी योजना.',
+                documentation: ['UDID कार्ड', 'आधार कार्ड', 'उत्पन्नाचा दाखला'],
+                benefits: ['अधिकृत मूल्यमापनानुसार सहाय्यक साधनांचे वितरण'],
+                eligibility: ['मंत्रालयाने ठरवून दिलेले उत्पन्न आणि दिव्यांगता निकष पूर्ण करणाऱ्या व्यक्ती.'],
+                availability: 'अली यावर जंग इन्स्टिट्यूट (मुंबई) आणि नियुक्त शासकीय केंद्रांद्वारे उपलब्ध.',
+                hospitals: ['अमरावती सिव्हिल हॉस्पिटल', 'नागपूर GMC'],
+                links: [{
+                    name: 'ADIP योजना आणि अर्ज पोर्टल',
+                    url: 'https://adip.depwd.gov.in'
+                }, {
+                    name: 'दिव्यांग सशक्तीकरण विभाग (DEPwD)',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'ayushman',
+                title: 'आयुष्मान भारत (PM-JAY)',
+                shortInfo: 'पात्र कुटुंबांना प्रतिवर्ष ₹5 लाखांपर्यंत आरोग्य संरक्षण देणारी राष्ट्रीय योजना.',
+                documentation: ['आयुष्मान कार्ड', 'आधार कार्ड', 'रेशन कार्ड'],
+                benefits: ['पात्र उपचारांसाठी प्रति कुटुंब प्रतिवर्ष ₹5 लाखांपर्यंत कव्हरेज'],
+                eligibility: ['SECC डेटाबेसमध्ये समाविष्ट किंवा आयुष्मान कार्डधारक कुटुंबे'],
+                availability: 'सूचीत शासकीय व खाजगी रुग्णालयांमध्ये कार्यान्वित.',
+                hospitals: ['अमरावती जिल्हा रुग्णालय', 'नागपूर GMC'],
+                links: [{
+                    name: 'आयुष्मान भारत लाभार्थी पोर्टल',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }],
+            hi: [{
+                id: 'mjpjay',
+                title: 'महात्मा ज्योतिराव फुले जन आरोग्य योजना (MJPJAY)',
+                shortInfo: 'महाराष्ट्र में मानदंडों के अधीन प्रति परिवार प्रति वर्ष ₹1.5 लाख तक का कैशलेस इलाज प्रदान करने वाली राज्य-वित्त पोषित स्वास्थ्य बीमा योजना।',
+                documentation: ['MJPJAY कार्ड', 'आधार कार्ड', 'आय प्रमाण पत्र', 'राशन कार्ड'],
+                benefits: ['पात्रता के अनुसार ₹1.5 लाख तक का उपचार कवरेज', 'पैनलबद्ध अस्पतालों में कैशलेस उपचार'],
+                eligibility: ['पीला, नारंगी या अंत्योदय राशन कार्ड धारक परिवार (आधिकारिक सत्यापन के अधीन)।'],
+                availability: 'केवल महाराष्ट्र में उपलब्ध।',
+                hospitals: ['अमरावती सिविल अस्पताल', 'नागपुर GMC', 'मुंबई JJ अस्पताल'],
+                links: [{
+                    name: 'महाराष्ट्र सार्वजनिक स्वास्थ्य विभाग',
+                    url: 'https://phd.maharashtra.gov.in'
+                }, {
+                    name: 'आयुष्मान भारत लाभार्थी पोर्टल',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }, {
+                id: 'rbsk',
+                title: 'राष्ट्रीय बाल स्वास्थ्य कार्यक्रम (RBSK)',
+                shortInfo: '0-18 वर्ष के बच्चों के लिए स्वास्थ्य जांच और विकासात्मक देरी की पहचान करने वाली प्रारंभिक हस्तक्षेप पहल।',
+                documentation: ['आधार कार्ड', 'जन्म प्रमाण पत्र', 'रेफरल'],
+                benefits: ['पात्र स्वास्थ्य स्थितियों के लिए जांच और संदर्भ सेवाएं'],
+                eligibility: ['0 से 18 वर्ष के बच्चे'],
+                availability: 'जिला परिषदों के माध्यम से स्कूल स्वास्थ्य कार्यक्रम।',
+                hospitals: ['अमरावती DEIC'],
+                links: [{
+                    name: 'राष्ट्रीय स्वास्थ्य पोर्टल',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'adip',
+                title: 'एडिपा योजना (ADIP Scheme)',
+                shortInfo: 'पात्र विकलांग व्यक्तियों के लिए सहायक उपकरण खरीदने और फिटिंग के लिए सहायता।',
+                documentation: ['UDID कार्ड', 'आधार कार्ड', 'आय प्रमाण पत्र'],
+                benefits: ['आधिकारिक मूल्यांकन के आधार पर सहायक उपकरण वितरण'],
+                eligibility: ['मंत्रालय द्वारा निर्धारित आय और विकलांगता मानदंडों को पूरा करने वाले व्यक्ति।'],
+                availability: 'अली यावर जंग संस्थान (मुंबई) और नामित सरकारी केंद्रों के माध्यम से।',
+                hospitals: ['अमरावती सिविल अस्पताल', 'नागपुर GMC'],
+                links: [{
+                    name: 'ADIP योजना और पोर्टल',
+                    url: 'https://adip.depwd.gov.in'
+                }, {
+                    name: 'दिव्यांगजन सशक्तिकरण विभाग (DEPwD)',
+                    url: 'https://depwd.gov.in'
+                }]
+            }, {
+                id: 'ayushman',
+                title: 'Ayushman Bharat (PM-JAY)',
+                shortInfo: 'पात्र परिवारों को प्रति वर्ष ₹5 लाख तक का स्वास्थ्य कवरेज प्रदान करने वाली राष्ट्रीय योजना।',
+                documentation: ['आयुष्मान कार्ड', 'आधार कार्ड', 'रेशन कार्ड'],
+                benefits: ['पात्र उपचार के लिए प्रति वर्ष ₹5 लाख तक का स्वास्थ्य कवरेज'],
+                eligibility: ['SECC डेटाबेस में सूचीबद्ध या सक्रिय आयुष्मान कार्ड धारक परिवार'],
+                availability: 'पैनलबद्ध सार्वजनिक और निजी अस्पतालों में कार्यान्वित।',
+                hospitals: ['अमरावती जिला अस्पताल', 'नागपुर GMC'],
+                links: [{
+                    name: 'आयुष्मान भारत लाभार्थी पोर्टल',
+                    url: 'https://beneficiary.nha.gov.in/maharashtra'
+                }]
+            }]
+        };
+
+        const medicalTreatmentsData = {
+            en: [{
+                id: 'cochlear-implant',
+                title: '1. Cochlear Implant Intervention',
+                shortInfo: 'Medical procedure involving an electronic device to assist with hearing nerve stimulation for qualifying individuals.',
+                image: 'cochlear-implant.png',
+                overview: 'Cochlear implant surgery is a clinical intervention where an electronic medical device may be surgically evaluated to assist individuals with severe hearing loss, subject to clinical screening and ENT specialist assessment.',
+                details: [{
+                    heading: 'Clinical Evaluation',
+                    items: ['Requires clinical screening by an authorized ENT specialist and audiologist.', 'Early audiological screening and therapy support are evaluated based on individual patient requirements.']
+                }, {
+                    heading: 'Cost & Coverage Considerations',
+                    items: ['Private surgical costs vary widely; however, financial assistance or subsidy options may be explored through qualifying government schemes such as ADIP or MJPJAY for eligible applicants.']
+                }, {
+                    heading: 'Qualifying Schemes & Official Links',
+                    items: [
+                        'ADIP Scheme Guidelines → <a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">Visit ADIP Portal</a>',
+                        'Ayushman Bharat Empanelment → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">Verify Eligibility Portal</a>',
+                        'Clinical Standards → <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD Official Website</a>',
+                        'DEPwD Portal → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD Official Portal</a>'
+                    ]
+                }]
+            }, {
+                id: 'middle-ear',
+                title: '2. Middle Ear Procedures',
+                shortInfo: 'Surgical options such as tympanoplasty to address middle ear conditions and help restore hearing function.',
+                image: 'middle-ear.png',
+                overview: 'Surgical interventions addressing eardrum or middle ear structures as recommended by otolaryngologists.',
+                details: [{
+                    heading: 'Overview',
+                    items: ['Procedures like tympanoplasty aim to repair the eardrum and improve conductive hearing when clinically indicated.']
+                }, {
+                    heading: 'Clinical Advice',
+                    items: ['Consult an ENT specialist for diagnosis and personalized treatment pathways.']
+                }, {
+                    heading: 'Schemes & Links',
+                    items: [
+                        'Hospital Network Check → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">Check Portal</a>',
+                        'Institute Guidance → <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD Portal</a>'
+                    ]
+                }, {
+                    heading: 'Cost Range',
+                    items: ['Varies by facility; public hospitals offer subsidized or scheme-backed care for eligible cardholders.']
+                }]
+            }, {
+                id: 'baha',
+                title: '3. Bone Anchored Hearing Systems (BAHA)',
+                shortInfo: 'Bone-conduction hearing solution utilizing a small implant to transmit sound vibrations when conventional aids are unsuitable.',
+                image: 'baha-surgery.png',
+                overview: 'A bone-anchored hearing system utilizes bone conduction pathways to transmit sound directly to the inner ear.',
+                details: [{
+                    heading: 'Indications',
+                    items: ['Considered for specific types of conductive or mixed hearing loss, or single-sided deafness, following clinical evaluation.']
+                }, {
+                    heading: 'Scheme Support',
+                    items: ['Qualifying applicants may review support options via national health programs and disability welfare portals.']
+                }, {
+                    heading: 'Official Resources',
+                    items: [
+                        'Welfare Guidelines → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD India Portal</a>',
+                        'State Health Info → <a href="https://phd.maharashtra.gov.in" target="_blank" rel="noopener noreferrer">Maharashtra Health Dept</a>'
+                    ]
+                }]
+            }, {
+                id: 'speech-surgeries',
+                title: '4. Speech & Anatomical Interventions',
+                shortInfo: 'Surgical corrections for structural conditions affecting speech development, such as cleft palate repair.',
+                image: 'speech-surgery.png',
+                overview: 'Specialized interventions addressing physical factors that may impact clear speech production.',
+                details: [{
+                    heading: 'Purpose',
+                    items: ['Addresses anatomical barriers to improve speech clarity and communication capabilities alongside speech therapy.']
+                }, {
+                    heading: 'Support Pathways',
+                    items: ['Eligible families can coordinate with empaneled hospitals and state welfare schemes for financial assistance.']
+                }, {
+                    heading: 'Official Portal',
+                    items: ['Ministry Portal → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD Portal</a>']
+                }]
+            }],
+            mr: [{
+                id: 'cochlear-implant',
+                title: '१. कॉक्लियर इम्प्लांट हस्तक्षेप (Cochlear Implant)',
+                shortInfo: 'पात्र व्यक्तींसाठी श्रवण मज्जातंतू उत्तेजित करण्यास मदत करणारे वैद्यकीय उपकरण आणि शस्त्रक्रिया.',
+                image: 'cochlear-implant.png',
+                overview: 'कॉक्लियर इम्प्लांट शस्त्रक्रिया हा एक वैद्यकीय हस्तक्षेप आहे ज्यामध्ये गंभीर श्रवणदोष असलेल्या व्यक्तींसाठी ईएनटी तज्ञांच्या मूल्यांकनानंतर इलेक्ट्रॉनिक उपकरणाचा विचार केला जातो.',
+                details: [{
+                    heading: 'वैद्यकीय मूल्यमापन',
+                    items: ['अधिकृत ईएनटी तज्ञ आणि ऑडिओलॉजिस्टद्वारे क्लिनिकल तपासणी आवश्यक असते.', 'प्रारंभिक श्रवण तपासणी आणि थेरपीच्या गरजा वैयक्तिक रुग्णाच्या स्थितीनुसार ठरवल्या जातात.']
+                }, {
+                    heading: 'खर्च आणि सहाय्य',
+                    items: ['खाजगी खर्च वेगवेगळा असू शकतो; तथापि, पात्र अर्जदारांसाठी ADIP किंवा MJPJAY सारख्या शासकीय योजनांद्वारे आर्थिक सहाय्य मिळू शकते.']
+                }, {
+                    heading: 'शासकीय योजना आणि लिंक्स',
+                    items: [
+                        'ADIP योजना → <a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">ADIP पोर्टल पहा</a>',
+                        'आयुष्मान भारत → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">पात्रता तपासा</a>',
+                        'संस्थेचे संकेतस्थळ → <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD संकेतस्थळ</a>'
+                    ]
+                }]
+            }, {
+                id: 'middle-ear',
+                title: '२. मध्य कानाची शस्त्रक्रिया (Middle Ear Procedures)',
+                shortInfo: 'कानाचा पर्दा दुरुस्त करण्यासाठी आणि ऐकण्याची क्षमता सुधारण्यासाठी टिमपानोपलास्टीसारखे पर्याय.',
+                image: 'middle-ear.png',
+                overview: 'ओटोलॉजिस्टच्या सल्ल्यानुसार कानाचा पर्दा किंवा मध्य कानाच्या संरचनेवरील शस्त्रक्रिया.',
+                details: [{
+                    heading: 'आढावा',
+                    items: ['टिमपानोपलास्टीसारख्या प्रक्रियेचा उद्देश कानाचा पर्दा दुरुस्त करणे हा असतो.']
+                }, {
+                    heading: 'सल्ला',
+                    items: ['तज्ज्ञ ईएनटी वैद्यांचा सल्ला घ्या.']
+                }, {
+                    heading: 'लिंक्स',
+                    items: ['हॉस्पिटल नेटवर्क → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">पोर्टल तपासा</a>']
+                }]
+            }, {
+                id: 'baha',
+                title: '३. बोन अँकरड हियरिंग सिस्टीम (BAHA)',
+                shortInfo: 'पारंपारिक श्रवणयंत्र योग्य नसताना आवाजाची कंपने पोहोचवणारी अस्थी-वहन (bone-conduction) प्रणाली.',
+                image: 'baha-surgery.png',
+                overview: 'थेट आतील कानात कंपने पोहोचवण्यासाठी अस्थी-वहन मार्गाचा वापर करणारी प्रणाली.',
+                details: [{
+                    heading: 'मार्गदर्शक तत्त्वे',
+                    items: ['वैद्यकीय मूल्यमापनानंतर विशिष्ट श्रवणदोषांसाठी विचार केला जातो.']
+                }, {
+                    heading: 'अधिकृत संकेतस्थळ',
+                    items: ['कल्याणकारी माहिती → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD पोर्टल</a>']
+                }]
+            }, {
+                id: 'speech-surgeries',
+                title: '४. भाषण आणि शारीरिक रचना हस्तक्षेप',
+                shortInfo: 'टाळूची खोट दुरुस्त करण्यासारख्या बोलण्यावर परिणाम करणाऱ्या शारीरिक समस्यांवर उपचार.',
+                image: 'speech-surgery.png',
+                overview: 'स्पष्ट उच्चारासाठी शारीरिक घटकांवर उपचार करणारा विशेष हस्तक्षेप.',
+                details: [{
+                    heading: 'उद्देश',
+                    items: ['स्पीच थेरपीसह संप्रेषण क्षमता सुधारणे.']
+                }, {
+                    heading: 'अधिकृत पोर्टल',
+                    items: ['मंत्रालय पोर्टल → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD पोर्टल</a>']
+                }]
+            }],
+            hi: [{
+                id: 'cochlear-implant',
+                title: '१. कॉक्लियर इम्प्लांट हस्तक्षेप (Cochlear Implant)',
+                shortInfo: 'पात्र व्यक्तियों के लिए श्रवण तंत्रिका को उत्तेजित करने में मदद करने वाला चिकित्सा उपकरण और शल्य प्रक्रिया.',
+                image: 'cochlear-implant.png',
+                overview: 'कॉक्लियर इम्प्लांट सर्जरी एक चिकित्सीय हस्तक्षेप है जिसमें ईएनटी विशेषज्ञों के मूल्यांकन के बाद गंभीर बहरेपन से पीड़ित व्यक्तियों के लिए इलेक्ट्रॉनिक उपकरण पर विचार किया जाता है।',
+                details: [{
+                    heading: 'चिकित्सकीय मूल्यांकन',
+                    items: ['अधिकृत ईएनटी विशेषज्ञ और ऑडियोलॉजिस्ट द्वारा नैदानिक जांच आवश्यक है।', 'प्रारंभिक श्रवण जांच और थेरेपी की आवश्यकताएं व्यक्तिगत रोगी के आधार पर निर्धारित की जाती हैं।']
+                }, {
+                    heading: 'लागत और सहायता',
+                    items: ['निजी लागत भिन्न हो सकती है; हालाँकि, पात्र आवेदकों के लिए ADIP या MJPJAY जैसी सरकारी योजनाओं के माध्यम से वित्तीय सहायता ली जा सकती है।']
+                }, {
+                    heading: 'सरकारी योजनाएं और लिंक',
+                    items: [
+                        'ADIP योजना → <a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">ADIP पोर्टल देखें</a>',
+                        'आयुष्मान भारत → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">पात्रता जांचें</a>',
+                        'संस्थान निर्देशिका → <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD वेबसाइट</a>'
+                    ]
+                }]
+            }, {
+                id: 'middle-ear',
+                title: '२. मध्य कान की प्रक्रिया (Middle Ear Procedures)',
+                shortInfo: 'कान के पर्दे की मरम्मत और सुनने की क्षमता में सुधार के लिए टिमपानोप्लास्टी जैसे विकल्प।',
+                image: 'middle-ear.png',
+                overview: 'ओटोलॉजिस्ट की सिफारिश के अनुसार कान के पर्दे या मध्य कान की संरचना पर शल्य चिकित्सा।',
+                details: [{
+                    heading: 'अवलोकन',
+                    items: ['टिमपानोप्लास्टी जैसी प्रक्रियाओं का उद्देश्य कान के पर्दे की मरम्मत करना है।']
+                }, {
+                    heading: 'सलाह',
+                    items: ['व्यक्तिगत मार्ग के लिए ईएनटी विशेषज्ञ से परामर्श लें।']
+                }, {
+                    heading: 'लिंक',
+                    items: ['अस्पताल नेटवर्क → <a href="https://beneficiary.nha.gov.in/maharashtra" target="_blank" rel="noopener noreferrer">अस्पताल पोर्टल</a>']
+                }]
+            }, {
+                id: 'baha',
+                title: '३. बोन एंकरड हियरिंग सिस्टम (BAHA)',
+                shortInfo: 'पारंपरिक श्रवण यंत्र अनुपयुक्त होने पर ध्वनि कंपनों को प्रसारित करने वाली अस्थि-चालन प्रणाली।',
+                image: 'baha-surgery.png',
+                overview: 'सीधे आंतरिक कान में ध्वनि भेजने के लिए अस्थि चालन मार्गों का उपयोग करने वाली प्रणाली।',
+                details: [{
+                    heading: 'संकेत',
+                    items: ['नैदानिक मूल्यांकन के बाद विशिष्ट प्रकार की सुनने की हानि के लिए विचार किया जाता है।']
+                }, {
+                    heading: 'आधिकारिक लिंक',
+                    items: ['कल्याण पोर्टल → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD पोर्टल</a>']
+                }]
+            }, {
+                id: 'speech-surgeries',
+                title: '४. भाषण और शारीरिक संरचना हस्तक्षेप',
+                shortInfo: 'भाषण विकास को प्रभावित करने वाली संरचनात्मक स्थितियों के लिए शल्य चिकित्सा सुधार।',
+                image: 'speech-surgery.png',
+                overview: 'स्पष्ट वाणी उत्पादन को प्रभावित करने वाले शारीरिक कारकों को संबोधित करने वाले विशेष हस्तक्षेप।',
+                details: [{
+                    heading: 'उद्देश्य',
+                    items: ['स्पीच थेरेपी के साथ संप्रेषण क्षमताओं में सुधार करना।']
+                }, {
+                    heading: 'आधिकारिक पोर्टल',
+                    items: ['मंत्रालय पोर्टल → <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD पोर्टल</a>']
+                }]
+            }]
+        };
+
+        const educationData = {
+            en: [{
+                id: 'school-admission',
+                title: '1. School Admission',
+                shortInfo: 'Early admission, special tools, inclusive classrooms, parental awareness, and DEIC support centers.',
+                isTableCard: true,
+                overview: 'Children may join school with support from special educators and inclusive learning frameworks. Govt. guidelines encourage supportive environments for differently-abled children. District Early Intervention Centers (DEIC) in Maharashtra provide evaluation support.'
+            }, {
+                id: 'fyjc-education',
+                title: '2. 11th & 12th Education',
+                shortInfo: 'Maharashtra FYJC CAP admission system, institutions, scholarships, and student benefits.',
+                details: [{
+                    heading: 'Admission in Maharashtra (FYJC CAP System & Official Links)',
+                    items: [
+                        '1. Register on official central portal: <a href="https://mahafyjcadmissions.in/login" target="_blank" rel="noopener noreferrer">FYJC Admission Portal</a>',
+                        '2. Select colleges (Arts/Science/Commerce).',
+                        '3. Upload required documents: 10th marksheet, TC, disability certificate, domicile/caste (if applicable).',
+                        '4. Check merit list & allotment on portal.',
+                        '5. Confirm admission in allotted college.'
+                    ]
+                }, {
+                    heading: 'Relevant Institutions',
+                    items: ['Ali Yavar Jung National Institute of Speech & Hearing Disabilities (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD Mumbai</a>) - support & open schooling.', 'Red Cross School for Hearing Impaired, Pune - up to secondary level.', 'Badhir Muk Vidyalaya, Barshi - residential/day school.', 'Sevadham Matimand Nivasi Vidyalaya, Pune - special school guidance.']
+                }, {
+                    heading: 'Scholarships & Aids (Maharashtra & Official Portals)',
+                    items: [
+                        'Post-Matric Scholarship → Apply via <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT Scholarship Portal</a>',
+                        'ADIP Scheme → Govt. support for hearing aids & qualifying devices (<a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">ADIP Portal</a>)',
+                        'Financial Assistance Scheme → State aid for assistive appliances via <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">Divyang Sahayak Portal</a>',
+                        'Merit Award Scheme → Rewards qualifying students for academic excellence.'
+                    ]
+                }, {
+                    heading: 'Student Benefits & Concessions',
+                    items: ['Language Concessions → Subject exemptions or alternatives as per board rules.', 'Extra Exam Time → Additional time during board & competitive examinations.', 'Interpreter Support → Sign language interpretation support where available.']
+                }, {
+                    heading: 'Official Portals & Links',
+                    items: [
+                        'FYJC Admission Portal: <a href="https://mahafyjcadmissions.in/login" target="_blank" rel="noopener noreferrer">mahafyjcadmissions.in</a>',
+                        'MahaDBT Scholarship Portal: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>',
+                        'Divyang Sahayak & Welfare Services: <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">divyangsahayak.maharashtra.gov.in</a>',
+                        'State CET Cell Maharashtra: <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">cetcell.mahacet.org</a>'
+                    ]
+                }]
+            }, {
+                id: 'institutes-top',
+                title: '3. Premier Institutes in India & Globally',
+                shortInfo: 'Global institutions and premier Indian colleges for specialized hearing-impaired education.',
+                details: [{
+                    heading: 'Global Institutes',
+                    items: ['Gallaudet University (USA) - specialized university for deaf and hard-of-hearing students.', 'National Technical Institute for the Deaf (NTID) at RIT, USA.', 'California School for the Deaf (USA).', 'University of Bristol Centre for Deaf Studies (UK).']
+                }, {
+                    heading: 'Indian Institutes & Official Websites',
+                    items: ['Ali Yavar Jung National Institute of Speech & Hearing Disabilities (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD Mumbai</a>) - premier centre for higher education & rehab.', 'National Institute of Speech & Hearing (NISH), Kerala - specialized courses.', 'IGNOU - Special Education Programs.', 'Delhi University & JNU - inclusive education support cells.']
+                }]
+            }, {
+                id: 'graduation',
+                title: '4. Graduation Pathways',
+                shortInfo: 'UG courses, specialized institutions like AYJNISHD and MUHS, step-by-step checklist, and resources.',
+                details: [{
+                    heading: 'Institutes & Courses Offered',
+                    items: ['1. Ali Yavar Jung National Institute of Speech and Hearing Disabilities (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD Mumbai</a>)\n   - Courses Offered: M.Ed. in Special Education (Hearing Impairment), M.Sc. (Audiology).', '2. Maharashtra University of Health Sciences (MUHS), Nashik\n   - Course Offered: Master of Audiology & Speech Language Pathology (MASLP)']
+                }, {
+                    heading: 'Checklist for Admission',
+                    items: ['Obtain qualifying pass certificates.', 'Prepare Disability Certificate/UDID via <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">Divyang Sahayak Portal</a>.', 'Apply through <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">State CET Cell</a> or direct university admissions.', 'Apply for scholarships via <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT Portal</a>.']
+                }, {
+                    heading: 'Official Links',
+                    items: [
+                        'State CET Cell Maharashtra: <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">cetcell.mahacet.org</a>',
+                        'MahaDBT Portal: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>',
+                        'AYJNISHD Mumbai: <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">ayjnishd.nic.in</a>'
+                    ]
+                }]
+            }, {
+                id: 'post-graduation',
+                title: '5. Post-Graduation & Schemes',
+                shortInfo: 'PG pathways, admission criteria, required documents, and welfare schemes.',
+                details: [{
+                    heading: 'Admission Pathways',
+                    items: ['Centralized Admission Process (CAP) Portal via <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">State CET Cell</a>.', 'Direct university admissions in general and specialized postgraduate programs.']
+                }, {
+                    heading: 'Government Schemes for PG Students & Official Portals',
+                    items: [
+                        'MahaDBT Scholarship: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>',
+                        'ADIP Scheme Assistance: <a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">adip.depwd.gov.in</a>',
+                        'Divyang Welfare Services: <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">depwd.gov.in</a>'
+                    ]
+                }]
+            }, {
+                id: 'universities',
+                title: '6. Supported Universities',
+                shortInfo: 'Universities and colleges across Maharashtra offering support cells and inclusive education.',
+                details: [{
+                    heading: 'List of Supported Universities & Colleges',
+                    items: [
+                        '1. Savitribai Phule Pune University (SPPU), Pune - Support cells & concessions.',
+                        '2. University of Mumbai - Inclusive education cell.',
+                        '3. Dr. Babasaheb Ambedkar Marathwada University (BAMU), Aurangabad.',
+                        '4. Rashtrasant Tukadoji Maharaj Nagpur University (RTMNU), Nagpur.',
+                        '5. Sant Gadge Baba Amravati University, Amravati.',
+                        '6. SNDT Women\'s University, Mumbai.',
+                        '7. Ali Yavar Jung National Institute of Speech & Hearing Disabilities (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD</a>) - Mumbai.'
+                    ]
+                }]
+            }, {
+                id: 'schemes-support',
+                title: '7. Government Schemes & Support',
+                shortInfo: 'Scholarships for students, fee reimbursement, and qualifying concessions.',
+                details: [{
+                    heading: 'Scholarships & Portals',
+                    items: [
+                        'Post-Matric Scholarship via <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT Portal</a>.',
+                        'Top Class Education Scheme for Students with Disabilities via <a href="https://depwd.gov.in" target="_blank" rel="noopener noreferrer">DEPwD Portal</a>.',
+                        'National Fellowship for Persons with Disabilities (UGC).'
+                    ]
+                }]
+            }, {
+                id: 'career-opportunities',
+                title: '8. Career & Employment Opportunities',
+                shortInfo: 'Government quota guidelines, NGOs, IT & corporate hiring, healthcare, and self-employment.',
+                details: [{
+                    heading: '1. Government & Public Sector',
+                    items: ['Reserved quota provisions as per government regulations for qualifying candidates.', 'Roles across administrative, clerical, and technical positions in public offices and banks.']
+                }, {
+                    heading: '2. NGOs & Special Institutions',
+                    items: ['Roles in rehabilitation, special education, and advocacy organizations like <a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD</a> and local NGOs.']
+                }, {
+                    heading: '3. IT & Corporate Sector',
+                    items: ['Opportunities in technology, data processing, graphic design, and back-office roles across inclusive corporate employers.']
+                }]
+            }],
+            mr: [{
+                id: 'school-admission',
+                title: '१. शाळा प्रवेश (School Admission)',
+                shortInfo: 'शाळा प्रवेश, आवश्यक कागदपत्रे आणि विशेष शिक्षण संस्थांची माहिती.',
+                isTableCard: true,
+                overview: 'विशेष शिक्षक आणि समावेशक शिक्षण प्रणालीच्या मार्गदर्शनाखाली बालके शाळेत प्रवेश घेऊ शकतात. जिल्हा दिव्यांग पुनर्वसन केंद्र (DEIC) सहाय्य पुरवतात.'
+            }, {
+                id: 'fyjc-education',
+                title: '२. ११ वी आणि १२ वी शिक्षण (11th & 12th)',
+                shortInfo: 'महाराष्ट्र FYJC प्रवेश प्रक्रिया, संस्था, शिष्यवृत्ती आणि विद्यार्थी सवलती.',
+                details: [{
+                    heading: 'महाराष्ट्रात प्रवेश (FYJC CAP प्रणाली व लिंक्स)',
+                    items: [
+                        '१. अधिकृत पोर्टलवर नोंदणी करा: <a href="https://mahafyjcadmissions.in/login" target="_blank" rel="noopener noreferrer">FYJC प्रवेश पोर्टल</a>',
+                        '२. महाविद्याय्ये निवडा.',
+                        '३. कागदपत्रे अपलोड करा: १० वी गुणपत्रिका, दिव्यांग प्रमाणपत्र.',
+                        '४. प्रवेश निश्चित करा.'
+                    ]
+                }, {
+                    heading: 'संबंधित संस्था',
+                    items: ['अली यावर जंग राष्ट्रीय संस्थान (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD मुंबई</a>)', 'रेड क्रॉस शाळा, पुणे']
+                }, {
+                    heading: 'शिष्यवृत्ती आणि अनुदान (पोर्टल्स)',
+                    items: [
+                        'पोस्ट-मॅट्रिक शिष्यवृत्ती → अर्ज करा <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT पोर्टल</a>',
+                        'ADIP योजना → सहाय्यक साधने (<a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">ADIP पोर्टल</a>)',
+                        'आर्थिक सहाय्य → <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">दिव्यांग सहायक पोर्टल</a>'
+                    ]
+                }]
+            }, {
+                id: 'institutes-top',
+                title: '३. प्रमुख संस्था (Top Institutes)',
+                shortInfo: 'विशेष शिक्षणासाठी जागतिक आणि भारतीय नामांकित संस्था.',
+                details: [{
+                    heading: 'प्रमुख भारतीय संस्था',
+                    items: ['अली यावर जंग राष्ट्रीय संस्थान (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD मुंबई</a>)', 'NISH (केरळ)', 'IGNOU विशेष शिक्षण कार्यक्रम']
+                }]
+            }, {
+                id: 'graduation',
+                title: '४. पदवी शिक्षण (Graduation)',
+                shortInfo: 'पदवी अभ्यासक्रम आणि प्रवेश प्रक्रिया.',
+                details: [{
+                    heading: 'संस्था व लिंक्स',
+                    items: [
+                        'राज्य CET सेल: <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">cetcell.mahacet.org</a>',
+                        'MahaDBT पोर्टल: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>'
+                    ]
+                }]
+            }, {
+                id: 'post-graduation',
+                title: '५. पदव्युत्तर शिक्षण (Post-Graduation)',
+                shortInfo: 'पदव्युत्तर प्रवेश मार्ग आणि योजना.',
+                details: [{
+                    heading: 'योजना व लिंक्स',
+                    items: ['MahaDBT: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>']
+                }]
+            }, {
+                id: 'universities',
+                title: '६. विद्यापीठे (Universities)',
+                shortInfo: 'दिव्यांग सहाय्य कक्ष असलेली विद्यापीठे.',
+                details: [{
+                    heading: 'प्रमुख विद्यापीठे',
+                    items: ['सावित्रीबाई फुले पुणे विद्यापीठ', 'मुंबई विद्यापीठ', 'नागपूर विद्यापीठ', 'AYJNISHD मुंबई']
+                }]
+            }, {
+                id: 'schemes-support',
+                title: '७. शासकीय योजना व सहाय्य',
+                shortInfo: 'विद्यार्थ्यांसाठी शिष्यवृत्ती आणि शुल्क परतावा.',
+                details: [{
+                    heading: 'शिष्यवृत्ती',
+                    items: ['MahaDBT पोस्ट-मॅट्रिक शिष्यवृत्ती', 'DEPwD योजना']
+                }]
+            }, {
+                id: 'career-opportunities',
+                title: '८. करिअरच्या संधी',
+                shortInfo: 'सरकारी कोटा, एनजीओ, आयटी आणि स्वयंरोजगार.',
+                details: [{
+                    heading: 'क्षेत्रे',
+                    items: ['सरकारी आणि सार्वजनिक क्षेत्र', 'आयटी व कॉर्पोरेट कंपन्या', 'पुनर्वसन व शिक्षण संस्था']
+                }]
+            }],
+            hi: [{
+                id: 'school-admission',
+                title: '१. स्कूल प्रवेश (School Admission)',
+                shortInfo: 'स्कूल प्रवेश, आवश्यक दस्तावेज और विशेष शिक्षण संस्थानों की जानकारी।',
+                isTableCard: true,
+                overview: 'विशेष शिक्षकों के मार्गदर्शन में बच्चे स्कूल में प्रवेश ले सकते हैं। जिला विकलांगता पुनर्वास केंद्र (DEIC) सहायता प्रदान करते हैं।'
+            }, {
+                id: 'fyjc-education',
+                title: '२. ११वीं और १२वीं शिक्षा (11th & 12th)',
+                shortInfo: 'महाराष्ट्र FYJC प्रवेश प्रणाली, संस्थान, छात्रवृत्ति और छात्र लाभ।',
+                details: [{
+                    heading: 'महाराष्ट्र में प्रवेश (FYJC CAP प्रणाली व लिंक)',
+                    items: [
+                        '1. आधिकारिक पोर्टल पर पंजीकरण करें: <a href="https://mahafyjcadmissions.in/login" target="_blank" rel="noopener noreferrer">FYJC प्रवेश पोर्टल</a>',
+                        '2. कॉलेज चुनें।',
+                        '3. दस्तावेज अपलोड करें।',
+                        '4. प्रवेश पक्का करें।'
+                    ]
+                }, {
+                    heading: 'संबंधित संस्थान',
+                    items: ['अली यावर जंग राष्ट्रीय संस्थान (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD मुंबई</a>)', 'रेड Cross स्कूल, पुणे']
+                }, {
+                    heading: 'छात्रवृत्ति और सहायता (पोर्टल)',
+                    items: [
+                        'पोस्ट-मैट्रिक छात्रवृत्ति → आवेदन करें <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT पोर्टल</a>',
+                        'ADIP योजना → सहायक उपकरण (<a href="https://adip.depwd.gov.in" target="_blank" rel="noopener noreferrer">ADIP पोर्टल</a>)',
+                        'वित्तीय सहायता → <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">दिव्यांग सहायक पोर्टल</a>'
+                    ]
+                }]
+            }, {
+                id: 'institutes-top',
+                title: '३. प्रमुख संस्थान (Top Institutes)',
+                shortInfo: 'विशेष शिक्षा के लिए प्रमुख संस्थान।',
+                details: [{
+                    heading: 'प्रमुख भारतीय संस्थान',
+                    items: ['अली यावर जंग राष्ट्रीय संस्थान (<a href="https://ayjnishd.nic.in" target="_blank" rel="noopener noreferrer">AYJNISHD मुंबई</a>)', 'NISH (केरल)']
+                }]
+            }, {
+                id: 'graduation',
+                title: '४. स्नातक (Graduation)',
+                shortInfo: 'स्नातक पाठ्यक्रम और प्रवेश प्रक्रिया।',
+                details: [{
+                    heading: 'संस्थान व लिंक',
+                    items: [
+                        'राज्य CET सेल: <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener noreferrer">cetcell.mahacet.org</a>',
+                        'MahaDBT पोर्टल: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>'
+                    ]
+                }]
+            }, {
+                id: 'post-graduation',
+                title: '५. स्नातकोत्तर (Post-Graduation)',
+                shortInfo: 'स्नातकोत्तर प्रवेश मार्ग और योजनाएं।',
+                details: [{
+                    heading: 'योजना व लिंक',
+                    items: ['MahaDBT: <a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">mahadbt.maharashtra.gov.in</a>']
+                }]
+            }, {
+                id: 'universities',
+                title: '६. विश्वविद्यालय (Universities)',
+                shortInfo: 'दिव्यांग सहायता सेल वाले विश्वविद्यालय।',
+                details: [{
+                    heading: 'प्रमुख विश्वविद्यालय',
+                    items: ['सावित्रीबाई फुले पुणे विश्वविद्यालय', 'मुंबई विश्वविद्यालय', 'नागपुर विश्वविद्यालय', 'AYJNISHD मुंबई']
+                }]
+            }, {
+                id: 'schemes-support',
+                title: '७. सरकारी योजनाएँ और सहायता',
+                shortInfo: 'छात्रों के लिए छात्रवृत्ति और शुल्क प्रतिपूर्ति।',
+                details: [{
+                    heading: 'छात्रवृत्ति',
+                    items: ['MahaDBT पोस्ट-मैट्रिक छात्रवृत्ति', 'DEPwD योजनाएं']
+                }]
+            }, {
+                id: 'career-opportunities',
+                title: '८. करियर के अवसर',
+                shortInfo: 'सरकारी कोटा, एनजीओ, आईटी और स्वरोजगार।',
+                details: [{
+                    heading: 'क्षेत्र',
+                    items: ['सरकारी और सार्वजनिक क्षेत्र', 'आईटी और कॉर्पोरेट कंपनियां', 'पुनर्वसन और शिक्षण संस्थान']
+                }]
+            }]
+        };
+
+        const organizationData = {
+            en: [{
+                id: 'general-orgs',
+                title: 'Support Organizations & NGOs',
+                shortInfo: 'Discover trusted non-profits and community networks offering guidance, legal advocacy, and counseling.',
+                details: [{
+                    heading: 'National & National-Level Advocacy',
+                    items: [
+                        'All India Deaf and Dumb Society (AIDDS), Delhi - Total rehabilitation and vocational training.',
+                        'Deaf Enabled Foundation (DEF) - Indian Sign Language (ISL) literacy and digital skill development.',
+                        'VAANI (Deaf Children\'s Foundation) - Early intervention and family guidance.',
+                        'Noida Deaf Society (NDS) - Specialized computer education and employment support.',
+                        'National Association of the Deaf (NAD) - Human rights and promotion of Indian Sign Language (ISL).'
+                    ]
+                }]
+            }, {
+                id: 'maharashtra-orgs',
+                title: 'Maharashtra Organisations & Support Networks',
+                shortInfo: 'State initiatives, portals, DDRCs, and regional NGOs supporting hearing-impaired individuals across Maharashtra.',
+                details: [{
+                    heading: 'Special State Initiatives & Portals',
+                    items: [
+                        'Maha Sharad Portal/App - Central hub for Divyang support.',
+                        'District Disability Rehabilitation Centres (DDRCs) - Available in districts for therapy & devices.',
+                        'State Disability Commissioner Office, Mumbai.',
+                        'Divyang Sahayak Portal: <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">divyangsahayak.maharashtra.gov.in</a>'
+                    ]
+                }, {
+                    heading: 'Organisations in Maharashtra',
+                    items: [
+                        'Ekvira Multipurpose Foundation (Akola) - Early intervention and support.',
+                        'Navjeevan School for Hearing Impaired (Thane/Palghar).',
+                        'Helen Keller Institute (Mumbai).',
+                        'Sahayogini (Thane/Navi Mumbai).',
+                        'Pahal Foundation (Latur).',
+                        'Progressive Life Center (Aurangabad).',
+                        'NAB Unit Maharashtra (Nashik).'
+                    ]
+                }]
+            }],
+            mr: [{
+                id: 'general-orgs',
+                title: 'मदत करणाऱ्या संस्था आणि एनजीओ',
+                shortInfo: 'मार्गदर्शन, कायदेशीर सल्ला आणि कौटुंबिक समुपदेशन देणाऱ्या संस्था.',
+                details: [{
+                    heading: 'राष्ट्रीय संस्था',
+                    items: ['All India Deaf and Dumb Society (दिल्ली)', 'Deaf Enabled Foundation', 'VAANI (डिफ चिल्ड्रन्स फाउंडेशन)', 'Noida Deaf Society', 'National Association of the Deaf (NAD)']
+                }]
+            }, {
+                id: 'maharashtra-orgs',
+                title: 'महाराष्ट्र संस्था आणि विशेष उपक्रम',
+                shortInfo: 'शासकीय पोर्टल, DDRC केंद्रे आणि महाराष्ट्रातील विविध प्रादेशिक संस्था.',
+                details: [{
+                    heading: 'विशेष राज्य उपक्रम व पोर्टल्स',
+                    items: [
+                        'महा शरद पोर्टल/ॲप - दिव्यांगांसाठी मदत केंद्र.',
+                        'जिल्हा दिव्यांग पुनर्वसन केंद्र (DDRC).',
+                        'दिव्यांग सहायक पोर्टल: <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">divyangsahayak.maharashtra.gov.in</a>'
+                    ]
+                }, {
+                    heading: 'महाराष्ट्रातील संस्था',
+                    items: ['ऐविरा मल्टिपर्पज फाउंडेशन (अकोला)', 'जीवन शाळा (ठाणे/पालघर)', 'हेलन सेलर इन्स्टिट्यूट (मुंबई)', 'सहयोगिनी (ठाणे/नवी मुंबई)', 'पहल फाउंडेशन (लातूर)']
+                }]
+            }],
+            hi: [{
+                id: 'general-orgs',
+                title: 'सहायता संगठन और एनजीओ',
+                shortInfo: 'मार्गदर्शन, कानूनी सहायता और परामर्श प्रदान करने वाले विश्वसनीय संगठन।',
+                details: [{
+                    heading: 'राष्ट्रीय संगठन',
+                    items: ['All India Deaf and Dumb Society (दिल्ली)', 'Deaf Enabled Foundation', 'VAANI (डिफ चिल्ड्रन्स फाउंडेशन)', 'Noida Deaf Society', 'National Association of the Deaf (NAD)']
+                }]
+            }, {
+                id: 'maharashtra-orgs',
+                title: 'महाराष्ट्र संगठन और विशेष कदम',
+                shortInfo: 'राज्य पहल, पोर्टल, DDRC और पूरे महाराष्ट्र में बहरे व्यक्तियों का समर्थन करने वाले क्षेत्रीय एनजीओ।',
+                details: [{
+                    heading: 'विशेष राज्य पहल व पोर्टल',
+                    items: [
+                        'महा शरद पोर्टल/ऐप - दिव्यांग सहायता का केंद्रीय केंद्र।',
+                        'जिला विकलांगता पुनर्वास केंद्र (DDRC)।',
+                        'दिव्यांग सहायक पोर्टल: <a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">divyangsahayak.maharashtra.gov.in</a>'
+                    ]
+                }, {
+                    heading: 'महाराष्ट्र में संगठन',
+                    items: ['एकविरा मल्टिपर्पज फाउंडेशन (अकोला)', 'नवजीवन स्कूल (ठाणे/पालघर)', 'हेलन केलर इंस्टीट्यूट (मुंबई)', 'सहयोगिनी (ठाणे/नवी मुंबई)']
+                }]
+            }]
+        };
+
+        let language = localStorage.getItem('samaj-language') || 'en';
+        if (!['en', 'mr', 'hi'].includes(language)) {
+            language = 'en';
+        }
+
+        let activeSchemeId = null;
+        let activeMedicalId = null;
+        let activeEducationId = null;
+        let activeOrgId = null;
+
+        const languageSelect = document.getElementById('languageSelect');
+        const t = key => translations[language][key] || translations.en[key] || key;
+
+        function applyLanguage() {
+            document.documentElement.lang = language;
+            languageSelect.value = language;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const value = t(el.dataset.i18n);
+                if (value) el.textContent = value;
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                el.placeholder = t(el.dataset.i18nPlaceholder);
+            });
+
+            renderSchemesSection();
+            renderMedicalSection();
+            renderEducationSection();
+            renderOrganizationSection();
+        }
+
+        // Render Schemes Section
+        function renderSchemesSection() {
+            const container = document.getElementById('schemesContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            const schemesList = governmentSchemesData[language] || governmentSchemesData.en;
+
+            if (!activeSchemeId) {
+                const grid = document.createElement('div');
+                grid.className = 'resource-grid';
+                grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                schemesList.forEach(scheme => {
+                    const card = document.createElement('button');
+                    card.className = 'resource-card';
+                    card.style.width = '100%';
+                    card.innerHTML = `
+                        <div class="card-icon-circle">
+                            <img src="gov-logo.png" alt="Government Scheme Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\'><circle cx=\'24\' cy=\'24\' r=\'24\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'52%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'11\' font-weight=\'bold\'>GOV</text></svg>'">
+                        </div>
+                        <span class="card-title">${escapeHtml(scheme.title)}</span>
+                        <span class="card-description">${escapeHtml(scheme.shortInfo)}</span>
+                        <span class="card-link">${escapeHtml(t('explore'))}</span>
+                    `;
+                    card.addEventListener('click', () => {
+                        activeSchemeId = scheme.id;
+                        renderSchemesSection();
+                        document.getElementById('schemes').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                    grid.appendChild(card);
+                });
+                container.appendChild(grid);
+            } else {
+                const scheme = schemesList.find(s => s.id === activeSchemeId) || schemesList[0];
+                const detailBox = document.createElement('div');
+                detailBox.className = 'scheme-detail-container';
+
+                let html = `
+                    <button class="button secondary" style="margin-bottom: 20px;" id="backToSchemesBtn">${escapeHtml(t('backToSchemes'))}</button>
+                    <h3>${escapeHtml(scheme.title)}</h3>
+                `;
+
+                if (scheme.documentation && scheme.documentation.length > 0) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('docRequired'))}:</h4><ul>`;
+                    scheme.documentation.forEach(doc => {
+                        html += `<li>${escapeHtml(doc)}</li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+
+                if (scheme.benefits && scheme.benefits.length > 0) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('benefits'))}:</h4><ul>`;
+                    scheme.benefits.forEach(b => {
+                        html += `<li>${escapeHtml(b)}</li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+
+                if (scheme.eligibility && scheme.eligibility.length > 0) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('eligibility'))}:</h4><ul>`;
+                    scheme.eligibility.forEach(e => {
+                        html += `<li>${escapeHtml(e)}</li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+
+                if (scheme.availability) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('availability'))}:</h4><p>${escapeHtml(scheme.availability)}</p></div>`;
+                }
+
+                if (scheme.hospitals && scheme.hospitals.length > 0) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('hospitalsSupport'))}:</h4><ul>`;
+                    scheme.hospitals.forEach(h => {
+                        html += `<li>${escapeHtml(h)}</li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+
+                if (scheme.links && scheme.links.length > 0) {
+                    html += `<div class="scheme-detail-section"><h4>${escapeHtml(t('officialPortals'))}:</h4><ul>`;
+                    scheme.links.forEach(l => {
+                        html += `<li><a href="${l.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.name)}</a></li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+
+                detailBox.innerHTML = html;
+                container.appendChild(detailBox);
+
+                document.getElementById('backToSchemesBtn').addEventListener('click', () => {
+                    activeSchemeId = null;
+                    renderSchemesSection();
+                });
+            }
+        }
+
+        // Render Medical Section
+        function renderMedicalSection() {
+            const container = document.getElementById('medicalContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            const medicalList = medicalTreatmentsData[language] || medicalTreatmentsData.en;
+
+            if (!activeMedicalId) {
+                const grid = document.createElement('div');
+                grid.className = 'resource-grid';
+                grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                medicalList.forEach(treatment => {
+                    const card = document.createElement('button');
+                    card.className = 'resource-card';
+                    card.style.width = '100%';
+                    card.innerHTML = `
+                        <div class="card-icon-circle">
+                            <img src="medical-icon.png" alt="Medical Treatment Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\'><circle cx=\'24\' cy=\'24\' r=\'24\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'52%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'11\' font-weight=\'bold\'>GOV</text></svg>'">
+                        </div>
+                        <span class="card-title">${escapeHtml(treatment.title)}</span>
+                        <span class="card-description">${escapeHtml(treatment.shortInfo)}</span>
+                        <span class="card-link">${escapeHtml(t('explore'))}</span>
+                    `;
+                    card.addEventListener('click', () => {
+                        activeMedicalId = treatment.id;
+                        renderMedicalSection();
+                        document.getElementById('medical').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                    grid.appendChild(card);
+                });
+                container.appendChild(grid);
+            } else {
+                const treatment = medicalList.find(s => s.id === activeMedicalId) || medicalList[0];
+                const detailBox = document.createElement('div');
+                detailBox.className = 'scheme-detail-container';
+
+                let detailsHtml = '';
+                if (treatment.overview) {
+                    detailsHtml += `<div class="scheme-detail-section"><p>${escapeHtml(treatment.overview)}</p></div>`;
+                }
+                if (treatment.details && treatment.details.length > 0) {
+                    treatment.details.forEach(det => {
+                        detailsHtml += `<div class="scheme-detail-section"><h4>${escapeHtml(det.heading)}</h4><ul>`;
+                        det.items.forEach(item => {
+                            detailsHtml += `<li>${item}</li>`;
+                        });
+                        detailsHtml += `</ul></div>`;
+                    });
+                }
+
+                detailBox.innerHTML = `
+                    <button class="button secondary" style="margin-bottom: 20px;" id="backToMedicalBtn">${escapeHtml(t('backToMedical'))}</button>
+                    <div class="detail-layout">
+                        <div class="detail-content">
+                            <h3>${escapeHtml(treatment.title)}</h3>
+                            ${detailsHtml}
+                        </div>
+                        <div class="detail-image-box">
+                            <img src="${treatment.image}" alt="${escapeHtml(treatment.title)}" class="detail-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'15\'>Medical Illustration</text></svg>'">
+                        </div>
+                    </div>
+                `;
+                container.appendChild(detailBox);
+
+                document.getElementById('backToMedicalBtn').addEventListener('click', () => {
+                    activeMedicalId = null;
+                    renderMedicalSection();
+                });
+            }
+        }
+
+        // Render Education Section
+        function renderEducationSection() {
+            const container = document.getElementById('educationContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            const educationList = educationData[language] || educationData.en;
+
+            if (!activeEducationId) {
+                const grid = document.createElement('div');
+                grid.className = 'resource-grid';
+                grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                educationList.forEach(edu => {
+                    const card = document.createElement('button');
+                    card.className = 'resource-card';
+                    card.style.width = '100%';
+                    card.innerHTML = `
+                        <div class="card-icon-circle">
+                            <img src="education-icon.png" alt="Education Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\'><circle cx=\'24\' cy=\'24\' r=\'24\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'52%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'11\' font-weight=\'bold\'>GOV</text></svg>'">
+                        </div>
+                        <span class="card-title">${escapeHtml(edu.title)}</span>
+                        <span class="card-description">${escapeHtml(edu.shortInfo)}</span>
+                        <span class="card-link">${escapeHtml(t('explore'))}</span>
+                    `;
+                    card.addEventListener('click', () => {
+                        activeEducationId = edu.id;
+                        renderEducationSection();
+                        document.getElementById('education').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                    grid.appendChild(card);
+                });
+                container.appendChild(grid);
+            } else {
+                const edu = educationList.find(s => s.id === activeEducationId) || educationList[0];
+                const detailBox = document.createElement('div');
+                detailBox.className = 'scheme-detail-container';
+
+                let html = `
+                    <button class="button secondary" style="margin-bottom: 20px;" id="backToEducationBtn">${escapeHtml(t('backToEducation'))}</button>
+                    <h3>${escapeHtml(edu.title)}</h3>
+                `;
+
+                if (edu.overview) {
+                    html += `<div class="scheme-detail-section"><p>${escapeHtml(edu.overview)}</p></div>`;
+                }
+
+                if (edu.isTableCard) {
+                    html += `
+                    <div style="overflow-x:auto; margin-top: 20px;">
+                        <table class="detail-table">
+                            <thead>
+                                <tr>
+                                    <th>${escapeHtml(t('tableAgeGroup'))}</th>
+                                    <th>${escapeHtml(t('tableDocsReq'))}</th>
+                                    <th>${escapeHtml(t('tableSchoolType'))}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>3 - 5 years</strong></td>
+                                    <td><ul><li>Birth Certificate</li><li>Aadhaar Card</li><li>Disability Certificate/UDID (if available)</li></ul></td>
+                                    <td>Pre-Primary / Special Schools with early intervention support.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6 - 10 years</strong></td>
+                                    <td><ul><li>Birth Certificate</li><li>Aadhaar Card</li><li>Disability Certificate / UDID</li></ul></td>
+                                    <td>Special or Inclusive Schools (Class 1-4).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>11 - 15 years</strong></td>
+                                    <td><ul><li>Disability Certificate / UDID (<a href="https://divyangsahayak.maharashtra.gov.in/site/login" target="_blank" rel="noopener noreferrer">Divyang Portal</a>)</li><li>Income Certificate</li></ul></td>
+                                    <td>Secondary Schools with scholarship support (<a href="https://www.mahadbt.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer">MahaDBT</a>).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+                }
+
+                if (edu.details && edu.details.length > 0) {
+                    edu.details.forEach(det => {
+                        html += `<div class="scheme-detail-section"><h4>${escapeHtml(det.heading)}</h4><ul>`;
+                        det.items.forEach(item => {
+                            html += `<li>${item}</li>`;
+                        });
+                        html += `</ul></div>`;
+                    });
+                }
+
+                detailBox.innerHTML = html;
+                container.appendChild(detailBox);
+
+                document.getElementById('backToEducationBtn').addEventListener('click', () => {
+                    activeEducationId = null;
+                    renderEducationSection();
+                });
+            }
+        }
+
+        // Render Organisation Section
+        function renderOrganizationSection() {
+            const container = document.getElementById('organizationContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            const orgList = organizationData[language] || organizationData.en;
+
+            if (!activeOrgId) {
+                const grid = document.createElement('div');
+                grid.className = 'resource-grid';
+                grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                orgList.forEach(org => {
+                    const card = document.createElement('button');
+                    card.className = 'resource-card';
+                    card.style.width = '100%';
+                    card.innerHTML = `
+                        <div class="card-icon-circle">
+                            <img src="gov-logo.png" alt="NGO Organization Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\'><circle cx=\'24\' cy=\'24\' r=\'24\' fill=\'%23e9f2ff\'/><text x=\'50%\' y=\'52%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23163b70\' font-family=\'sans-serif\' font-size=\'11\' font-weight=\'bold\'>NGO</text></svg>'">
+                        </div>
+                        <span class="card-title">${escapeHtml(org.title)}</span>
+                        <span class="card-description">${escapeHtml(org.shortInfo)}</span>
+                        <span class="card-link">${escapeHtml(t('explore'))}</span>
+                    `;
+                    card.addEventListener('click', () => {
+                        activeOrgId = org.id;
+                        renderOrganizationSection();
+                        document.getElementById('organization').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                    grid.appendChild(card);
+                });
+                container.appendChild(grid);
+            } else {
+                const org = orgList.find(s => s.id === activeOrgId) || orgList[0];
+                const detailBox = document.createElement('div');
+                detailBox.className = 'scheme-detail-container';
+
+                let html = `
+                    <button class="button secondary" style="margin-bottom: 20px;" id="backToOrgBtn">${escapeHtml(t('backToOrg'))}</button>
+                    <h3>${escapeHtml(org.title)}</h3>
+                `;
+
+                if (org.details && org.details.length > 0) {
+                    org.details.forEach(det => {
+                        html += `<div class="scheme-detail-section"><h4>${escapeHtml(det.heading)}</h4><ul>`;
+                        det.items.forEach(item => {
+                            html += `<li>${escapeHtml(item)}</li>`;
+                        });
+                        html += `</ul></div>`;
+                    });
+                }
+
+                detailBox.innerHTML = html;
+                container.appendChild(detailBox);
+
+                document.getElementById('backToOrgBtn').addEventListener('click', () => {
+                    activeOrgId = null;
+                    renderOrganizationSection();
+                });
+            }
+        }
+
+        languageSelect.addEventListener('change', () => {
+            language = languageSelect.value;
+            localStorage.setItem('samaj-language', language);
+            applyLanguage();
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        menuToggle.addEventListener('click', () => {
+            const nav = document.getElementById('mainNav');
+            const open = nav.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(open));
+        });
+
+        document.querySelectorAll('#mainNav a').forEach(a => a.addEventListener('click', () => {
+            document.getElementById('mainNav').classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }));
+
+        // Help Desk Form Submission with Flexible Phone / Email Validation & Safe Feedback
+        document.getElementById('helpDeskForm').addEventListener('submit', async(e) => {
+            e.preventDefault();
+            const form = e.target;
+            const contactInput = document.getElementById('userContact').value.trim();
+            const successDiv = document.getElementById('successMessage');
+
+            // Flexible validation supporting email or general phone numbers (10 to 15 chars/digits, optional plus/dashes)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+            if (!emailRegex.test(contactInput) && !phoneRegex.test(contactInput)) {
+                alert(language === 'mr' ? 'कृपया वैध ईमेल किंवा फोन नंबर प्रविष्ट करा.' : (language === 'hi' ? 'कृपया वैध ईमेल या फोन नंबर दर्ज करें।' : 'Please enter a valid email address or phone number.'));
+                return;
+            }
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    successDiv.style.display = 'block';
+                    form.reset();
+                    setTimeout(() => {
+                        successDiv.style.display = 'none';
+                    }, 6000);
+                } else {
+                    alert(language === 'mr' ? 'सबमिट करताना अडचण आली. कृपया नंतर पुन्हा प्रयत्न करा.' : (language === 'hi' ? 'सबमिट करने में समस्या आई। कृपया बाद में पुनः प्रयास करें।' : 'There was a problem submitting your inquiry. Please try again later.'));
+                }
+            } catch (error) {
+                alert(language === 'mr' ? 'नेटवर्क त्रुटी. कृपया तुमचे कनेक्शन तपासा.' : (language === 'hi' ? 'नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।' : 'Network error. Please check your internet connection.'));
+            }
+        });
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, c => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[c]));
+        }
+
+        // Function to open the Image Modal Lightbox with focus management
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = imageSrc;
+            modal.style.display = 'flex';
+            document.getElementById('closeModal').focus();
+        }
+
+        // Close modal listeners & Escape key handling
+        document.getElementById('closeModal').addEventListener('click', () => {
+            document.getElementById('imageModal').style.display = 'none';
+        });
+        document.getElementById('imageModal').addEventListener('click', (e) => {
+            if (e.target.id === 'imageModal') {
+                document.getElementById('imageModal').style.display = 'none';
+            }
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('imageModal').style.display = 'none';
+            }
+        });
+
+        // Automatically load booklet pages 1 to 29 into the scrolling container with neutral fallback
+        const bookletContainer = document.querySelector('.scrolling-booklet-container');
+        if (bookletContainer) {
+            bookletContainer.innerHTML = '';
+            for (let i = 1; i <= 29; i++) {
+                const pageCard = document.createElement('div');
+                pageCard.style.cssText = 'flex: 0 0 200px; scroll-snap-align: start; background: white; border: 1px solid var(--line); border-radius: 12px; padding: 8px; text-align: center; cursor: pointer; transition: 0.2s;';
+                pageCard.innerHTML = `
+                    <img src="${i}.jpg" alt="Booklet Page ${i}" style="width: 100%; height: 260px; object-fit: cover; border-radius: 8px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'260\'><rect width=\'100%\' height=\'100%\' fill=\'%23e2e9f2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2366758b\' font-family=\'sans-serif\' font-size=\'14\'>Page ${i}</text></svg>'">
+                    <small style="display: block; margin-top: 6px; color: var(--muted); font-weight: 600;">Page ${i}</small>
+                `;
+                pageCard.addEventListener('click', () => {
+                    openModal(`${i}.jpg`);
+                });
+                bookletContainer.appendChild(pageCard);
+            }
+        }
+
+        applyLanguage();
+    </script>
+</body>
+
+</html>
