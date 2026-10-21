@@ -2325,8 +2325,8 @@
                     org.details.forEach(det => {
                         html += `<div class="scheme-detail-section"><h4>${escapeHtml(det.heading)}</h4><ul>`;
                         det.items.forEach(item => {
-                            html += `<li>${escapeHtml(item)}</li>`;
-                        });
+                        html += `<li>${item.includes('<a') ? item : escapeHtml(item)}</li>`;
+                    });
                         html += `</ul></div>`;
                     });
                 }
